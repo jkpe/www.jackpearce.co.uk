@@ -1,7 +1,7 @@
 FROM node:18-alpine as build
 RUN apk add git
 RUN git clone https://github.com/colinmeinke/ghost-storage-adapter-s3
-RUN git clone https://github.com/TryGhost/Alto
+RUN git clone https://github.com/jkpe/Alto
 RUN cd ghost-storage-adapter-s3 && npm install
 
 FROM ghost:5.66.0-alpine
