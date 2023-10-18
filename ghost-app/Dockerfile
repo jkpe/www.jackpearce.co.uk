@@ -1,4 +1,4 @@
-FROM node:18-alpine as build
+FROM node:20-alpine as build
 RUN apk add git
 RUN git clone https://github.com/colinmeinke/ghost-storage-adapter-s3
 RUN git clone https://github.com/TryGhost/Alto
