@@ -12,11 +12,6 @@
 	handle @ghost_nocache {
 		header ?Cache-Control "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
 	}
-	handle {
-		header Cache-Control "max-age=3600" {
-			defer
-		}
-	}
 	reverse_proxy ghost-app:2368 {
 		header_up X-Forwarded-Proto "https"
 	}
