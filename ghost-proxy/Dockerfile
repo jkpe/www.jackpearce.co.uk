@@ -1,4 +1,4 @@
-FROM caddy:nopenope
+FROM caddy:nope
 ADD ghost-proxy/Caddyfile /etc/caddy/Caddyfile
 EXPOSE 80
 
