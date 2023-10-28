@@ -1,0 +1,19 @@
+name: do-app-testing
+on:
+  push:
+    branches:
+      - renovate/ghost-5.x
+    paths:
+      - 'ghost-app/**'
+      - 'ghost-proxy/**'
+jobs:
+  rebuild:
+    name: Build, push, and deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install doctl
+      uses: digitalocean/action-doctl@v2.5.0
+      with:
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+    - name: Rebuild app
+      run: doctl apps create-deployment ${{ secrets.DO_APP_TESTING_ID }} --force-rebuild --wait
