@@ -5,7 +5,7 @@ https://www.jackpearce.co.uk/deploy-ghost-on-digitalocean-app-platform/
 
 /ghost-proxy\
 `
-This will deploy an instance of Caddy to serve as a reverse proxy for Ghost. We're using Caddy to tell App Platform's built-in CDN to cache slightly more agressively. You could use nginx here instead.
+This will deploy an instance of Nginx to serve as a reverse proxy for Ghost.
 `
 
 /ghost-app\
