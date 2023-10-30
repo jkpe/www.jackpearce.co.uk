@@ -1,6 +1,4 @@
-FROM caddy:2.7.5
-ADD ghost-proxy/Caddyfile /etc/caddy/Caddyfile
+FROM nginx:1.25.3-alpine
+RUN rm /etc/nginx/conf.d/default.conf
+ADD ghost-proxy/ghost.conf /etc/nginx/conf.d/ghost.conf
 EXPOSE 80
-
-# Run caddy when the container launches
-CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
