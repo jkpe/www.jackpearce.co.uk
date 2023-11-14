@@ -2,6 +2,7 @@ vcl 4.1;
 
 acl purge {
   "ghost";
+  "127.0.0.1";
 }
 
 sub vcl_recv {
