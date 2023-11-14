@@ -15,7 +15,7 @@ sub vcl_recv {
 }
 
 backend default {
-    .host = "ghost-app:2368";
+    .host = "ghost:2368";
 }
 sub vcl_recv {
     # Do not cache the admin and preview pages
