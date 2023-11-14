@@ -1,4 +1,18 @@
-vcl 4.0;
+vcl 4.1;
+
+acl purge {
+  "127.0.0.1";
+}
+
+sub vcl_recv {
+  if (req.url ~ "/rebuild/purge") {
+    if (client.ip !~ purge) {
+      return (synth(405, "Method Not Allowed"));
+    }
+    ban("req.http.host == yourdomain.you");
+    return(synth(200, "Cache cleared"));
+  }
+}
 
 backend default {
     .host = "ghost-app:2368";
