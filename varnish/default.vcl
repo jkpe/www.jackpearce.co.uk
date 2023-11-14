@@ -10,7 +10,7 @@ sub vcl_recv {
     if (client.ip !~ purge) {
       return (synth(405, "Method Not Allowed"));
     }
-    ban("req.http.host == yourdomain.you");
+    ban("req.http.host == www.jackpearce.co.uk");
     return(synth(200, "Cache cleared"));
   }
 }
