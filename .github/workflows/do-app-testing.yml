@@ -4,8 +4,9 @@ on:
     branches:
       - renovate/ghost-5.x
     paths:
-      - 'ghost-app/**'
-      - 'ghost-proxy/**'
+      - 'ghost/**'
+      - 'nginx/**'
+      - 'varnish/**'
 jobs:
   rebuild:
     name: Testing Build, push, and deploy

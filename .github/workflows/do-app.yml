@@ -4,8 +4,9 @@ on:
     branches:
       - main
     paths:
-      - 'ghost-app/**'
-      - 'ghost-proxy/**'
+      - 'ghost/**'
+      - 'nginx/**'
+      - 'varnish/**'
 jobs:
   rebuild:
     name: Build, push, and deploy
