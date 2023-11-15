@@ -1,7 +1,7 @@
 vcl 4.1;
 
 acl purge {
-  "ghost";
+  "ghost-app";
   "127.0.0.1";
 }
 
@@ -16,7 +16,7 @@ sub vcl_recv {
 }
 
 backend default {
-    .host = "ghost:2368";
+    .host = "ghost-app:2368";
 }
 
 sub vcl_recv {
