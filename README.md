@@ -3,12 +3,12 @@
 TL;DR
 https://www.jackpearce.co.uk/deploy-ghost-on-digitalocean-app-platform/
 
-/ghost-proxy\
+/nginx\
 `
 This will deploy an instance of Nginx to serve as a reverse proxy for Ghost.
 `
 
-/ghost-app\
+/ghost\
 `
 This is our 'custom' Ghost docker image. Here we ensure that our S3 storage adapter and theme of choice persists between App Platform deployments. In the example below I am pulling in the Alto theme and the latest version of Ghost 5.x.
 `
