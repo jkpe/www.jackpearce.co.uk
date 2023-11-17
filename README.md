@@ -17,3 +17,5 @@ Backend infrastructure:\
 [DigitalOcean App Platform](https://docs.digitalocean.com/products/app-platform/)\
 [DigitalOcean Managed Database](https://docs.digitalocean.com/products/databases/mysql/)\
 [DigitalOcean Spaces (S3 Object Storage)](https://docs.digitalocean.com/products/spaces/)
+
+[![do-app-testing](https://github.com/jkpe/www.jackpearce.co.uk/actions/workflows/do-app-testing.yml/badge.svg)](https://github.com/jkpe/www.jackpearce.co.uk/actions/workflows/do-app-testing.yml) [![do-app](https://github.com/jkpe/www.jackpearce.co.uk/actions/workflows/do-app.yml/badge.svg)](https://github.com/jkpe/www.jackpearce.co.uk/actions/workflows/do-app.yml) [![renovate-config-validator](https://github.com/jkpe/www.jackpearce.co.uk/actions/workflows/renovate-config-validator.yml/badge.svg)](https://github.com/jkpe/www.jackpearce.co.uk/actions/workflows/renovate-config-validator.yml)
