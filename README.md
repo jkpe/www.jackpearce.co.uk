@@ -75,22 +75,26 @@ node build.js
 ## Features
 
 ### Dark Mode
+
 - Automatic system preference detection
 - Manual toggle with persistent preference
 - Syncs across pages
 - Affects Giscus comments theme
 
 ### Category Filtering
+
 - Dynamic category generation from posts
 - Interactive filtering on the homepage
 - Preserves filter state during navigation
 
 ### RSS Feed
+
 - Automatically generated from posts
 - Includes full post metadata
 - Sorted by publication date
 
 ### Comments
+
 - Powered by Giscus
 - GitHub Discussions backend
 - Automatic theme syncing
@@ -99,12 +103,14 @@ node build.js
 ## Templates
 
 ### Index Template (`templates/index.html`)
+
 - Category filtering system
 - Card-based post layout
 - Dark mode support
 - Responsive design
 
 ### Post Template (`templates/post.html`)
+
 - Article formatting
 - Code syntax highlighting
 - Reading time display
@@ -143,7 +149,3 @@ The `dist/` directory contains the complete static site ready for deployment. De
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
-
-## License
-
-[Add your license information here]
