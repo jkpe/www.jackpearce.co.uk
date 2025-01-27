@@ -159,6 +159,31 @@
             border-top: 1px solid var(--border);
         }
 
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .heart {
+            color: #e11d48;
+            display: inline-block;
+            margin: 0 0.25rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
@@ -215,6 +240,14 @@
                 async>
             </script>
         </section>
+
+        <footer class="footer">
+            This site uses a custom static site generator, the source code for the site can be found at 
+            <a href="https://github.com/jkpe/www.jackpearce.co.uk" target="_blank" rel="noopener noreferrer">
+                github.com/jkpe/www.jackpearce.co.uk
+            </a>
+            <span class="heart">♥</span>
+        </footer>
     </div>
 
     <script>
