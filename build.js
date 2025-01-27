@@ -4,6 +4,7 @@ const path = require('path');
 const { marked } = require('marked');
 const matter = require('gray-matter');
 const { minify } = require('html-minifier');
+const generateRSS = require('./rss'); // Import the RSS generator
 
 // Site metadata for RSS
 const siteMetadata = {
@@ -152,33 +153,6 @@ async function generateIndex(posts) {
         .replace('{{posts}}', postsHtml);
 }
 
-// Generate RSS feed
-async function generateRSS(posts) {
-    const template = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>${siteMetadata.title}</title>
-        <link>${siteMetadata.siteUrl}</link>
-        <description>${siteMetadata.description}</description>
-        <atom:link href="${siteMetadata.siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
-        ${posts
-            .sort((a, b) => new Date(b.date) - new Date(a.date))
-            .map(post => `
-                <item>
-                    <title>${post.title}</title>
-                    <link>${siteMetadata.siteUrl}/posts/${post.slug}.html</link>
-                    <description>${post.excerpt || ''}</description>
-                    <category>${post.category}</category>
-                    <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-                    <guid>${siteMetadata.siteUrl}/posts/${post.slug}.html</guid>
-                </item>
-            `).join('\n')}
-    </channel>
-</rss>`;
-
-    return template;
-}
-
 // Main build function
 async function build() {
     try {
@@ -209,8 +183,8 @@ async function build() {
         });
         await fs.writeFile('dist/index.html', minifiedIndexHtml);
 
-        // Generate RSS feed
-        const rssFeed = await generateRSS(posts);
+        // Generate RSS feed using the imported function
+        const rssFeed = generateRSS(posts, siteMetadata);
         await fs.writeFile('dist/rss.xml', rssFeed);
         
         console.log('Build completed successfully!');

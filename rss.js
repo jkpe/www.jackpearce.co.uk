@@ -1,8 +1,12 @@
 // rss.js
 const escapeXml = (unsafe) => {
     if (!unsafe) return '';
-    return unsafe.toString()
-        .replace(/&/g, '&amp;')     // Must be first to prevent double-escaping
+    
+    // First pass: escape all raw ampersands that aren't already part of an entity
+    const preProcessed = unsafe.toString().replace(/&(?![a-zA-Z0-9#]+;)/g, '&amp;');
+    
+    // Second pass: escape other special characters
+    return preProcessed
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
