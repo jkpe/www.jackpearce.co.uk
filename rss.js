@@ -1,36 +1,34 @@
 // rss.js
 const escapeXml = (unsafe) => {
     if (!unsafe) return '';
-    return unsafe.toString().replace(/[<>&'"]/g, (c) => {
-        switch (c) {
-            case '<': return '&lt;';
-            case '>': return '&gt;';
-            case '&': return '&amp;';
-            case '\'': return '&apos;';
-            case '"': return '&quot;';
-        }
-    });
+    return unsafe.toString()
+        .replace(/&/g, '&amp;')     // Must be first to prevent double-escaping
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
 };
 
 const generateRSS = (posts, siteMetadata) => {
     const items = posts
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .map(post => {
-            // Ensure all required fields exist
-            const title = post.title || '';
-            const slug = post.slug || '';
-            const excerpt = post.excerpt || '';
-            const category = post.category || '';
+            // Ensure all required fields exist and are escaped
+            const title = escapeXml(post.title || '');
+            const slug = escapeXml(post.slug || '');
+            const excerpt = escapeXml(post.excerpt || '');
+            const category = escapeXml(post.category || '');
             const date = post.date ? new Date(post.date).toUTCString() : new Date().toUTCString();
+            const siteUrl = escapeXml(siteMetadata.siteUrl);
 
             return `
             <item>
-                <title>${escapeXml(title)}</title>
-                <link>${escapeXml(siteMetadata.siteUrl)}/posts/${escapeXml(slug)}.html</link>
-                <description>${escapeXml(excerpt)}</description>
-                <category>${escapeXml(category)}</category>
+                <title>${title}</title>
+                <link>${siteUrl}/posts/${slug}.html</link>
+                <description>${excerpt}</description>
+                <category>${category}</category>
                 <pubDate>${date}</pubDate>
-                <guid>${escapeXml(siteMetadata.siteUrl)}/posts/${escapeXml(slug)}.html</guid>
+                <guid>${siteUrl}/posts/${slug}.html</guid>
             </item>
         `}).join('\n');
 
