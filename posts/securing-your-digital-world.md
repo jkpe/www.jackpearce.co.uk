@@ -4,7 +4,7 @@ slug: securing-your-digital-world
 date: 2013-02-15T00:00:00.000Z
 excerpt: Everything requires a password. A long time ago it bugged me that I couldn’t think of something secure so I visited a web page that randomly generated passwords for you and I used the same 8 character password ever since, it contained 1 number and 7 letters one of which was uppercase.
 comments: false
-category: "Cloud Architecture"
+category: "Cybersecurity Insights"
 ---
 
 💡 **This post is very old now and the information below may well be inaccurate**

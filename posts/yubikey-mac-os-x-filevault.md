@@ -4,7 +4,7 @@ title: YubiKey and Mac OS X FileVault
 slug: yubikey-mac-os-x-filevault
 date: 2013-01-24T00:00:00.000Z
 excerpt: If there’s one thing I seem to be obsessed with lately and that’s security. I’ve never had any of my accounts hacked but that doesn’t stop me. It happens all the time though and working in IT I should know how to prevent it.
-category: "Home Lab"
+category: "Cybersecurity Insights"
 ---
 
 💡 **This post is very old now and the information below may well be inaccurate.**

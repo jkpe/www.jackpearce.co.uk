@@ -3,7 +3,7 @@ title: Investigating the dirty world of phishing emails
 slug: investigating-the-dirty-world-of-phishing-emails
 date: 2014-01-22T00:00:00.000Z
 comments: false
-category: "Cloud Architecture"
+category: "Cybersecurity Insights"
 ---
 
 The other day I was having a quick look through my Gmail spam folder and a particular email caught my eye. “Your NatWest CreditCard Online Statement is Ready Online”. Gmail warned me about the message. That they couldn’t verify it had been sent from natwestsecure.com and disabled all images and links. I was intruiged to know what would happen if I did click the link and also exactly where they were hosting this phishing site. Was it cheap shared hosting, or even a dedicated box?

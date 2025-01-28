@@ -3,7 +3,7 @@ title: Social attack against Subscriber Identity Module (SIM cards)
 slug: social-attack-against-sim-cards
 date: 2014-08-06T00:00:00.000Z
 comments: false
-category: "Cloud Architecture"
+category: "Cybersecurity Insights"
 ---
 
 A number of attacks on high profile individuals that have made the news recently are of a social nature more so than a vulnerability in a certain software’s code. [Mat Honan](http://www.wired.com/2012/08/apple-amazon-mat-honan-hacking/all/) perhaps being one of the most well known cases.
