@@ -21,7 +21,8 @@ pids
 *.pid.lock
 
 # Build output
-dist/
+dist/*
+!dist/_redirects
 build/
 
 # IDE and editor files
