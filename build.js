@@ -9,7 +9,7 @@ const generateRSS = require('./rss'); // Import the RSS generator
 // Site metadata for RSS
 const siteMetadata = {
     title: "Jack's Tech Blog",
-    description: 'Exploring home automation, cloud architecture, and system administration',
+    description: 'Exploring home automation, cloud architecture, and artificial intelligence.',
     siteUrl: 'https://www.jackpearce.co.uk'
 };
 
