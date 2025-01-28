@@ -6,7 +6,7 @@ excerpt: If you're a UK resident enjoying the benefits of Trooli's ultra-fast 1G
 category: "Home Lab"
 ---
 
-![Ubiquiti Dream Machine Pro](https://www.jackpearce.co.uk/images/ubiquiti-dream-machine-pro.png)
+![Ubiquiti Dream Machine Pro](https://images.jackpearce.co.uk/ubiquiti-dream-machine-pro.png)
 
 This guide will walk you through the process of setting up your Ubiquiti Dream Machine with Trooli's network, bypassing the default Technicolor DGA4134 router.
 

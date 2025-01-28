@@ -10,7 +10,7 @@ As an avid Home Assistant user and a fan of automation, I embarked on a project 
 
 The repository I created contains workflows that automate the deployment and updating of various Home Assistant components. Here's a detailed breakdown of how each part works.
 
-![Automated GitHub Release](https://www.jackpearce.co.uk/images/homeassistant-github-actions-updates.png)
+![Automated GitHub Release](https://images.jackpearce.co.uk/homeassistant-github-actions-updates.png)
 
 #### [Core Workflow](https://github.com/jkpe/homeassistant-update-automation/blob/main/.github/workflows/core.yml)
 [github.com/jkpe/homeassistant-update-automation/blob/main/.github/workflows/core.yml](https://github.com/jkpe/homeassistant-update-automation/blob/main/.github/workflows/core.yml)
