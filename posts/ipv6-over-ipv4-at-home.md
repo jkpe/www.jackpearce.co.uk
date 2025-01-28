@@ -51,7 +51,7 @@ When running any of the above commands, these are just three examples, you’re 
 
 IPv6 is a scary thing and I’d love to be more confident on the subject. This is something I am most definitely going to study for and I reccommend anyone in the industry to do the same.
 
-{{< rawhtml >}}
+
   <div id="disqus_thread"></div>
   <script>
     (function() { 
@@ -62,4 +62,3 @@ IPv6 is a scary thing and I’d love to be more confident on the subject. This i
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{{< /rawhtml >}}

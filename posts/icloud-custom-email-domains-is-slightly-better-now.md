@@ -26,7 +26,7 @@ My Fastmail subscription is up for renewal so I thought I would take another loo
 
 But what about the catch-all? Well yes, this does mitigate the problem for incoming email, despite there being an Apple ID for firstname@domain.com with catch-all enabled I can receive email to this address. However I’m unable to send email from this address using iCloud due Issue #6.
 
-{{< rawhtml >}}
+
 <script src="https://giscus.app/client.js"
         data-repo="jkpe/highlyavailable.net-comments"
         data-repo-id="R_kgDOILL-iA"
@@ -42,4 +42,3 @@ But what about the catch-all? Well yes, this does mitigate the problem for incom
         crossorigin="anonymous"
         async>
 </script>
-{{< /rawhtml >}}

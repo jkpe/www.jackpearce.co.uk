@@ -14,9 +14,9 @@ The device shows the current temperature, target heating level, sleep stage, and
 
 If you have ideas for improving this setup or additional features you'd like to see, feel free to share your suggestions in the comments or the [Github Repo](https://github.com/jkpe/eight-sleep-m5stack-atoms3).
 
-{{< rawhtml >}}
+
 <img src="https://images.jackpearce.co.uk/atoms3-eightsleep.jpeg" alt="Featured Image" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px;">
-{{< /rawhtml >}}
+
 
 ## Features
 

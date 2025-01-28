@@ -21,7 +21,7 @@ Using the YubiKey Personalization Tool that you programmed your YubiKey with you
 
 So there it is, if you’re using you’ve programmed your YubiKey with a static password and you’re having problems authenticating at boot after enabling OS X FileVault then set your Output Character Rate to 40ms delay. Vuala!
 
-{{< rawhtml >}}
+
   <div id="disqus_thread"></div>
   <script>
     (function() { 
@@ -32,4 +32,3 @@ So there it is, if you’re using you’ve programmed your YubiKey with a static
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{{< /rawhtml >}}

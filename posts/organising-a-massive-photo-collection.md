@@ -69,7 +69,7 @@ This sorts the photos into a dated folder structure moved to Dropbox/Photos by R
 
 I’m yet to work out how I can de-duplicate, compress and accurately sort my videos. Nearly 70% of my Dropbox is consumed by video and I’d love to do get that number down. If anybody has a similar workflow for video I’d love to here it.
 
-{{< rawhtml >}}
+
   <div id="disqus_thread"></div>
   <script>
     (function() { 
@@ -80,4 +80,3 @@ I’m yet to work out how I can de-duplicate, compress and accurately sort my vi
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{{< /rawhtml >}}

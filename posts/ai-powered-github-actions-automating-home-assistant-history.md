@@ -147,6 +147,6 @@ As my smart home setup continues to evolve, this tool allows me to focus more on
 
 If you're a Home Assistant enthusiast like me, I hope this inspires you to think about new ways to manage and document your own smart home journey. Happy automating!
 
-{{< rawhtml >}}
+
 <script src="https://gist.github.com/jkpe/d6c9a3f4d1db77cb24875e3a289291ad.js"></script>
-{{< /rawhtml >}}
+

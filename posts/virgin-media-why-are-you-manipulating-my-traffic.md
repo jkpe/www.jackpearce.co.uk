@@ -93,7 +93,7 @@ Ahh, that’s better :-)
 - My Virgin SuperHub is in modem mode
 - It’s entirely possible Virgin Media has struck a deal with OpenDNS however I couldn’t find mention of that anywhere and it seems unlikely. The responses to this post have led me to believe some deal has been made.
 
-{{< rawhtml >}}
+
   <div id="disqus_thread"></div>
   <script>
     (function() { 
@@ -104,4 +104,3 @@ Ahh, that’s better :-)
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{{< /rawhtml >}}

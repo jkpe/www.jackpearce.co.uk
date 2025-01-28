@@ -50,7 +50,7 @@ If you don’t feel comfortable hosting your website for free then I’d highly 
 
 1. Buster is built from Jekyll
 
-{{< rawhtml >}}
+
   <div id="disqus_thread"></div>
   <script>
     (function() { 
@@ -61,4 +61,3 @@ If you don’t feel comfortable hosting your website for free then I’d highly 
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{{< /rawhtml >}}
