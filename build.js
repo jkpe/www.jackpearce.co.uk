@@ -58,6 +58,7 @@ async function generatePost(metadata, htmlContent) {
         // Create a regex for each template variable to ensure all instances are replaced
         const replacements = {
             '{{title}}': metadata.title,
+            '{{slug}}': metadata.slug,
             '{{date}}': formattedDate,
             '{{category}}': metadata.category,
             '{{readTime}}': metadata.readTime,
