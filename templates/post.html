@@ -48,26 +48,35 @@
         /* Navigation */
         .nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-            padding: 1rem 0;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
-
+        
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 1.5rem;
         }
-
+        
         .nav a {
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-
+        
         .nav a:hover {
             color: var(--accent);
+        }
+
+        .nav svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
 
         /* Header */
