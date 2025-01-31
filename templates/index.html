@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Pearce's Tech Blog</title>
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Primary Meta Tags -->
+        <title>Jack Pearce's Tech Blog - Cloud Architecture, AI & Home Automation</title>
+        <meta name="title" content="Jack Pearce's Tech Blog - Cloud Architecture, AI & Home Automation">
+        <meta name="description" content="Expert insights on home automation, cloud architecture, and artificial intelligence. Technical tutorials, best practices, and industry analysis.">
+        <meta name="author" content="Jack Pearce">
+        <meta name="keywords" content="cloud architecture, home automation, artificial intelligence, tech blog, software engineering">
+    
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="canonical" href="https://www.jackpearce.co.uk">
+    
+        <!-- Feed -->
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed for Jack Pearce's Tech Blog" href="/rss.xml">
+    
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "url": "https://www.jackpearce.co.uk",
+          "name": "Jack Pearce's Tech Blog",
+          "description": "Expert insights on home automation, cloud architecture, and artificial intelligence",
+          "author": {
+            "@type": "Person",
+            "name": "Jack Pearce",
+            "url": "https://www.jackpearce.co.uk/jackpearce",
+            "sameAs": [
+              "https://github.com/jkpe",
+              "https://linkedin.com/in/pearcejack"
+            ]
+          }
+        }
+        </script>
     <style>
         /* Dark mode variables */
         :root {
@@ -15,6 +50,7 @@
             --accent: #2563eb;
             --border: #e5e7eb;
             --card-shadow: rgba(0, 0, 0, 0.1);
+            --font-serif: "Fraunces", "Freight Text Pro", "Apple Garamond", serif;
         }
 
         html.dark {
@@ -42,66 +78,10 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-        }
-
-        /* Navigation */
-        .nav {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Categories at top */
-        .categories {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-        }
-
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .category-tag {
-            background: var(--bg-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 100px;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .category-tag.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-
-        .category-tag:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
         }
 
         /* Header */
@@ -111,100 +91,174 @@
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
+                font-family: var(--font-serif);
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 1rem;
+            }
 
         .header p {
             font-size: 1.2rem;
             color: var(--text-secondary);
         }
 
-        /* Article Grid */
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .article-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 20px var(--card-shadow);
-        }
-
-        .category {
-            display: inline-flex;
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: flex-end;
             align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav a:hover {
             color: var(--accent);
-            margin-bottom: 1rem;
+        }
+
+        .nav svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category-tags {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .category-tag {
+            background: none;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .category-tag::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            transition: width 0.2s ease;
+        }
+
+        .category-tag:nth-child(1)::after { background: #FFB3BA; }  /* Pastel Pink */
+        .category-tag:nth-child(2)::after { background: #BAFFC9; }  /* Pastel Green */
+        .category-tag:nth-child(3)::after { background: #BAE1FF; }  /* Pastel Blue */
+        .category-tag:nth-child(4)::after { background: #FFFFBA; }  /* Pastel Yellow */
+        .category-tag:nth-child(5)::after { background: #E8BAFF; }  /* Pastel Purple */
+        .category-tag:nth-child(6)::after { background: #FFD1BA; }  /* Pastel Orange */
+        .category-tag:nth-child(7)::after { background: #B3E5E5; }  /* Pastel Turquoise */
+
+        .category-tag:hover::after,
+        .category-tag.active::after {
+            width: 60%;
+        }
+
+        .category-tag.active {
             font-weight: 500;
         }
 
-        .category::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-right: 0.5rem;
+        .category-tag:nth-child(1).active { color: #FF8298; }
+        .category-tag:nth-child(2).active { color: #98FFB3; }
+        .category-tag:nth-child(3).active { color: #98CEFF; }
+        .category-tag:nth-child(4).active { color: #FFFF98; }
+        .category-tag:nth-child(5).active { color: #D998FF; }
+        .category-tag:nth-child(6).active { color: #FFB198; }
+        .category-tag:nth-child(7).active { color: #98D1D1; }
+
+        /* Posts List */
+        .posts-container {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .article-title {
-            font-size: 1.25rem;
+        .posts-list {
+            list-style: none;
+        }
+
+        .posts-list {
+            list-style: none;
+        }
+
+        .post-item {
+                display: grid;
+                grid-template-columns: 200px 1fr;
+                gap: 2rem;
+                padding: 1.5rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+        .post-item:hover .post-title a {
+            color: var(--accent);
+        }
+
+        .post-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .post-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .post-category {
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
             font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-title a {
             color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .article-title a {
-            color: inherit;
             text-decoration: none;
         }
 
-        .article-title a:hover {
+        .post-title a:hover {
             color: var(--accent);
         }
 
-        .article-meta {
+        .post-meta {
             font-size: 0.875rem;
             color: var(--text-secondary);
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 4rem;
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .heart {
-            color: #e11d48;
-            display: inline-block;
-            margin: 0 0.25rem;
         }
 
         /* Responsive adjustments */
@@ -217,8 +271,13 @@
                 font-size: 2rem;
             }
 
-            .article-grid {
+            .posts-container {
                 grid-template-columns: 1fr;
+            }
+
+            .year-month {
+                position: static;
+                margin-bottom: 1rem;
             }
         }
     </style>
@@ -226,10 +285,28 @@
 <body>
     <div class="container">
         <nav class="nav">
-            <a href="/rss.xml">RSS Feed</a>
-            <a href="#" id="theme-toggle">Dark Mode</a>
+            <div class="nav-links">
+                <a href="https://github.com/jkpe" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/pearcejack" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="/jackpearce">
+                    About
+                </a>
+                <a href="/rss.xml">
+                    RSS
+                </a>
+                <a href="#" id="theme-toggle">Dark Mode</a>
+            </div>
         </nav>
-
         <header class="header">
             <h1>Jack's Tech Blog</h1>
             <p>Exploring home automation, cloud architecture, and artificial intelligence.</p>
@@ -243,18 +320,12 @@
         </section>
 
         <main>
-            <div class="article-grid" id="posts-grid">
-                {{posts}}
+            <div class="posts-container">
+                <ul class="posts-list" id="posts-list">
+                    {{posts}}
+                </ul>
             </div>
         </main>
-
-        <footer class="footer">
-            This site uses a custom static site generator, the source code for the site can be found at 
-            <a href="https://github.com/jkpe/www.jackpearce.co.uk" target="_blank" rel="noopener noreferrer">
-                github.com/jkpe/www.jackpearce.co.uk
-            </a>
-            <span class="heart">♥</span>
-        </footer>
     </div>
 
     <script>
@@ -282,7 +353,7 @@
 
         // Category filtering
         const categoryButtons = document.querySelectorAll('.category-tag');
-        const articles = document.querySelectorAll('.article-card');
+        const posts = document.querySelectorAll('.post-item');
 
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -293,12 +364,12 @@
                 button.classList.add('active');
 
                 // Filter articles
-                articles.forEach(article => {
-                    const articleCategory = article.dataset.category;
-                    if (category === 'all' || category === articleCategory) {
-                        article.style.display = '';
+                posts.forEach(post => {
+                    const postCategory = post.dataset.category;
+                    if (category === 'all' || category === postCategory) {
+                        post.style.display = '';
                     } else {
-                        article.style.display = 'none';
+                        post.style.display = 'none';
                     }
                 });
             });
