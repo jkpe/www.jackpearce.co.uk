@@ -173,30 +173,39 @@
             transition: width 0.2s ease;
         }
 
-        .category-tag:nth-child(1)::after { background: #444444; }  /* Dark grey */
-        .category-tag:nth-child(2)::after { background: #444444; }  /* Dark grey */
-        .category-tag:nth-child(3)::after { background: #444444; }  /* Dark grey */
-        .category-tag:nth-child(4)::after { background: #444444; }  /* Dark grey */
-        .category-tag:nth-child(5)::after { background: #444444; }  /* Dark grey */
-        .category-tag:nth-child(6)::after { background: #444444; }  /* Dark grey */
-        .category-tag:nth-child(7)::after { background: #444444; }  /* Dark grey */
+        /* Light mode category tag colors */
+        .category-tag:nth-child(1)::after { background: #ff6f61; }  /* Coral */
+        .category-tag:nth-child(2)::after { background: #6b5b95; }  /* Purple */
+        .category-tag:nth-child(3)::after { background: #88b04b; }  /* Green */
+        .category-tag:nth-child(4)::after { background: #f7cac9; }  /* Pink */
+        .category-tag:nth-child(5)::after { background: #92a8d1; }  /* Blue */
+        .category-tag:nth-child(6)::after { background: #f7786b; }  /* Salmon */
+        .category-tag:nth-child(7)::after { background: #034f84; }  /* Dark Blue */
 
-        .category-tag:hover::after,
-        .category-tag.active::after {
-            width: 60%;
-        }
+        .category-tag:nth-child(1).active { color: #ff6f61; }
+        .category-tag:nth-child(2).active { color: #6b5b95; }
+        .category-tag:nth-child(3).active { color: #88b04b; }
+        .category-tag:nth-child(4).active { color: #f7cac9; }
+        .category-tag:nth-child(5).active { color: #92a8d1; }
+        .category-tag:nth-child(6).active { color: #f7786b; }
+        .category-tag:nth-child(7).active { color: #034f84; }
 
-        .category-tag.active {
-            font-weight: 500;
-        }
+        /* Dark mode category tag colors */
+        html.dark .category-tag:nth-child(1)::after { background: #ff9a8d; }  /* Light Coral */
+        html.dark .category-tag:nth-child(2)::after { background: #9a8cdb; }  /* Light Purple */
+        html.dark .category-tag:nth-child(3)::after { background: #b2d7a3; }  /* Light Green */
+        html.dark .category-tag:nth-child(4)::after { background: #f9d3d3; }  /* Light Pink */
+        html.dark .category-tag:nth-child(5)::after { background: #b3cde0; }  /* Light Blue */
+        html.dark .category-tag:nth-child(6)::after { background: #f9a1a1; }  /* Light Salmon */
+        html.dark .category-tag:nth-child(7)::after { background: #4f7a9a; }  /* Light Dark Blue */
 
-        .category-tag:nth-child(1).active { color: #444444; }
-        .category-tag:nth-child(2).active { color: #444444; }
-        .category-tag:nth-child(3).active { color: #444444; }
-        .category-tag:nth-child(4).active { color: #444444; }
-        .category-tag:nth-child(5).active { color: #444444; }
-        .category-tag:nth-child(6).active { color: #444444; }
-        .category-tag:nth-child(7).active { color: #444444; }
+        html.dark .category-tag:nth-child(1).active { color: #ff9a8d; }
+        html.dark .category-tag:nth-child(2).active { color: #9a8cdb; }
+        html.dark .category-tag:nth-child(3).active { color: #b2d7a3; }
+        html.dark .category-tag:nth-child(4).active { color: #f9d3d3; }
+        html.dark .category-tag:nth-child(5).active { color: #b3cde0; }
+        html.dark .category-tag:nth-child(6).active { color: #f9a1a1; }
+        html.dark .category-tag:nth-child(7).active { color: #4f7a9a; }
 
         /* Posts List */
         .posts-container {
