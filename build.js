@@ -58,6 +58,7 @@ async function generatePost(metadata, htmlContent) {
         // Create a regex for each template variable to ensure all instances are replaced
         const replacements = {
             '{{title}}': metadata.title,
+            '{{slug}}': metadata.slug,
             '{{date}}': formattedDate,
             '{{category}}': metadata.category,
             '{{readTime}}': metadata.readTime,
@@ -163,6 +164,11 @@ async function build() {
         // Copy static assets
         await fs.copyFile('static/styles.css', 'dist/styles.css').catch(() => {
             console.warn('No styles.css found in static directory');
+        });
+
+        // Copy about page
+        await fs.copyFile('templates/jackpearce.html', 'dist/jackpearce.html').catch(() => {
+            console.warn('No about.html found in templates directory');
         });
         
         // Process all markdown files
