@@ -293,14 +293,19 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             html.className = savedTheme;
+            themeToggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
         } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             html.className = 'dark';
+            themeToggle.textContent = 'Light Mode';
         }
 
         themeToggle.addEventListener('click', (e) => {
             e.preventDefault();
-            html.className = html.className === 'dark' ? 'light' : 'dark';
+            const isDark = html.className === 'dark';
+            html.className = isDark ? 'light' : 'dark';
+            themeToggle.textContent = isDark ? 'Dark Mode' : 'Light Mode';
             localStorage.setItem('theme', html.className);
+        });
 
             // Update giscus theme
             const giscusFrame = document.querySelector('iframe.giscus-frame');

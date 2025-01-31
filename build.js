@@ -165,6 +165,11 @@ async function build() {
         await fs.copyFile('static/styles.css', 'dist/styles.css').catch(() => {
             console.warn('No styles.css found in static directory');
         });
+
+        // Copy about page
+        await fs.copyFile('templates/jackpearce.html', 'dist/jackpearce.html').catch(() => {
+            console.warn('No about.html found in templates directory');
+        });
         
         // Process all markdown files
         const postsDir = path.join(__dirname, 'posts');
