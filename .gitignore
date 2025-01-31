@@ -22,7 +22,6 @@ pids
 
 # Build output
 dist/*
-!dist/_redirects
 build/
 
 # IDE and editor files
