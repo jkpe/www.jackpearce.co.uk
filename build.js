@@ -40,7 +40,8 @@ const calculateReadTime = (content) => {
     return Math.ceil(words / wordsPerMinute);
 };
 
-// Process post and generate HTML
+// In build.js, update the generatePost function:
+
 async function generatePost(metadata, htmlContent) {
     try {
         const templatePath = path.join(__dirname, 'templates', 'post.html');
