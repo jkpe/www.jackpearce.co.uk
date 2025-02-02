@@ -2,7 +2,7 @@
 title: Home Assistant / Google Assistant local connectivity
 slug: home-assistant-google-assistant-local-connectivity
 date: 2022-10-08T12:58:46.000Z
-category: "Home Automation"
+category: "Home Automation, Home Lab"
 ---
 
 Historically if you integrated Google Assistant with Home Assistant every time you asked "Hey Google, switch the light off" your Google device would do this:

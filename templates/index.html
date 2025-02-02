@@ -158,16 +158,20 @@
             box-shadow: 0 4px 20px var(--card-shadow);
         }
 
-        .category {
+        .categories-container {
+            margin-bottom: 1rem;
+        }
+
+        .category-primary {
             display: inline-flex;
             align-items: center;
             font-size: 0.9rem;
             color: var(--accent);
-            margin-bottom: 1rem;
             font-weight: 500;
+            margin-bottom: 0.25rem;
         }
 
-        .category::before {
+        .category-primary::before {
             content: '';
             display: inline-block;
             width: 8px;
@@ -175,6 +179,13 @@
             background: var(--accent);
             border-radius: 50%;
             margin-right: 0.5rem;
+        }
+
+        .categories-secondary {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-left: 1rem;
+            display: block;
         }
 
         .article-title {
@@ -386,7 +397,7 @@
 
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const category = button.dataset.category;
+                const selectedCategory = button.dataset.category;
                 
                 // Update active state of buttons
                 categoryButtons.forEach(btn => btn.classList.remove('active'));
@@ -394,8 +405,8 @@
 
                 // Filter articles
                 articles.forEach(article => {
-                    const articleCategory = article.dataset.category;
-                    if (category === 'all' || category === articleCategory) {
+                    const articleCategories = article.dataset.categories.split('|');
+                    if (selectedCategory === 'all' || articleCategories.includes(selectedCategory)) {
                         article.style.display = '';
                     } else {
                         article.style.display = 'none';

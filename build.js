@@ -40,12 +40,11 @@ const calculateReadTime = (content) => {
     return Math.ceil(words / wordsPerMinute);
 };
 
-// Process post and generate HTML
+// In build.js, update the generatePost function:
+
 async function generatePost(metadata, htmlContent) {
     try {
         const templatePath = path.join(__dirname, 'templates', 'post.html');
-        console.log('Loading template from:', templatePath);
-        
         const template = await fs.readFile(templatePath, 'utf-8');
         
         // Format the date
@@ -55,12 +54,27 @@ async function generatePost(metadata, htmlContent) {
             day: 'numeric'
         });
 
-        // Create a regex for each template variable to ensure all instances are replaced
+        // Process categories
+        const categories = metadata.category.split(',').map(cat => cat.trim());
+        const primaryCategory = categories[0];
+        const secondaryCategories = categories.slice(1);
+        
+        // Generate categories HTML
+        const categoriesHtml = `
+            <div class="categories-container">
+                <span class="category-primary">${primaryCategory}</span>
+                ${secondaryCategories.length > 0 ? 
+                    `<span class="categories-secondary">${secondaryCategories.join(' · ')}</span>` 
+                    : ''}
+            </div>
+        `;
+
+        // Replace template variables
         const replacements = {
             '{{title}}': metadata.title,
             '{{slug}}': metadata.slug,
             '{{date}}': formattedDate,
-            '{{category}}': metadata.category,
+            '{{category}}': categoriesHtml,  // Now replacing with HTML structure
             '{{readTime}}': metadata.readTime,
             '{{content}}': htmlContent
         };
@@ -122,7 +136,9 @@ async function generateIndex(posts) {
     const template = await fs.readFile(path.join(__dirname, 'templates/index.html'), 'utf-8');
     
     // Get unique categories
-    const categories = [...new Set(posts.map(post => post.category))];
+    const categories = [...new Set(posts.flatMap(post => 
+        (post.category || '').split(',').map(cat => cat.trim())
+    ))].filter(Boolean);
     const categoryTags = categories
         .map(category => `
             <button class="category-tag" data-category="${category}">${category}</button>
@@ -131,10 +147,29 @@ async function generateIndex(posts) {
 
     // Generate posts HTML
     const postsHtml = posts
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .map(post => `
-            <article class="article-card" data-category="${post.category}">
-                <div class="category">${post.category}</div>
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .map(post => {
+        // Split categories and trim whitespace
+        const postCategories = (post.category || '').split(',').map(cat => cat.trim());
+        const primaryCategory = postCategories[0];
+        const secondaryCategories = postCategories.slice(1);
+        
+        // Create a data attribute with all categories
+        const allCategories = postCategories.join('|');
+        
+        // Generate the categories HTML
+        const categoriesHtml = `
+            <div class="categories-container">
+                <div class="category-primary">${primaryCategory}</div>
+                ${secondaryCategories.length > 0 ? 
+                    `<div class="categories-secondary">${secondaryCategories.join(' · ')}</div>` 
+                    : ''}
+            </div>
+        `;
+
+        return `
+            <article class="article-card" data-categories="${allCategories}">
+                ${categoriesHtml}
                 <h2 class="article-title">
                     <a href="/posts/${post.slug}.html">${post.title}</a>
                 </h2>
@@ -146,8 +181,9 @@ async function generateIndex(posts) {
                     })}
                 </div>
             </article>
-        `)
-        .join('\n');
+        `;
+    })
+    .join('\n');
     
     return template
         .replace('{{categories}}', categoryTags)

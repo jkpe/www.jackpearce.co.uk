@@ -2,7 +2,7 @@
 title: Automating Alexa Guard
 slug: automating-alexa-guard
 date: 2019-05-15T00:00:00.000Z
-category: "Home Automation"
+category: "Home Automation, Home Lab"
 ---
 
 **Update:** I am now using the [alexa_media_player](https://github.com/keatontaylor/alexa_media_player) integration.
