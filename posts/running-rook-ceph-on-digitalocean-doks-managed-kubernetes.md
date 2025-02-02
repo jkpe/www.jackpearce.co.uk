@@ -1,5 +1,5 @@
 ---
-title: Running Rook / Ceph on DigitalOcean DOKS (Managed Kubernetes)
+title: Running Rook / Ceph on Kubernetes
 slug: running-rook-ceph-on-digitalocean-doks-managed-kubernetes
 date: 2023-04-27T12:51:00.000Z
 excerpt: In this guide we will deploy a Rook / Ceph cluster and give some working examples of consuming RWO Block and RWX Filesystem storage.

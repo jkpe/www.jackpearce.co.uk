@@ -1,5 +1,5 @@
 ---
-title: DigitalOcean, Kubernetes (DOKS) and Netmaker
+title: Kubernetes (DOKS) and Netmaker
 slug: digitalocean-kubernetes-doks-and-netmaker
 date: 2023-03-01T13:00:00.000Z
 excerpt: Netmaker is a platform for creating fast and secure virtual networks with WireGuard.
