@@ -3,7 +3,7 @@ title: Running NVIDIA NIMs on Kubernetes - A Technical Guide
 slug: nvidia-nims-digitalocean-kubernetes
 date: 2025-02-02T00:00:00.000Z
 excerpt: A comprehensive guide to deploying NVIDIA Neural Interface Models (NIMs) on DigitalOcean Kubernetes, covering GPU infrastructure setup, observability implementation, and model deployment using Llama 3.1 as an example.
-category: "Language Models"
+category: "Cloud Architecture, Language Models"
 ---
 
 This guide demonstrates how to run NVIDIA Neural Interface Models (NIMs) on DigitalOcean Kubernetes, specifically focusing on deploying Meta's Llama 3.1 model. We'll cover setting up GPU-enabled infrastructure, implementing observability, and configuring shared storage for model deployment.
