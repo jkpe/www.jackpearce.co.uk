@@ -10,7 +10,7 @@ This guide demonstrates how to run NVIDIA Neural Interface Models (NIMs) on Digi
 
 ## Infrastructure Overview
 
-We'll be utilizing:
+We'll be utilising:
 
 - DigitalOcean Droplets with GPU capabilities
 - DigitalOcean Kubernetes (DOKS)
@@ -21,13 +21,10 @@ We'll be utilizing:
 ## Prerequisites
 
 1. Sign up at build.nvidia.com (use business email for self-hosting capabilities)
-2. Enable GPU droplets in DigitalOcean control panel:
-   - Navigate to Settings → Feature Preview
-   - Enable GPU droplets feature
 
 ## Creating a GPU-Enabled Kubernetes Cluster
 
-Create a cluster using the DOCTL command line tool:
+Create a cluster using the `doctl` command line tool:
 
 ```bash
 doctl kubernetes cluster create gpu-cluster \
