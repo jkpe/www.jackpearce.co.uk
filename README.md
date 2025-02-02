@@ -1,6 +1,6 @@
 # www.jackpearce.co.uk
 
-This is a static blog focused on home automation, networking, and system administration. The site is built using a custom static site generator that converts markdown files to HTML.
+This site is built using a custom static site generator that converts markdown files to HTML.
 
 ## Technologies
 
@@ -36,7 +36,7 @@ Posts are written in Markdown with YAML frontmatter. Each post should include:
 ---
 title: Post Title
 date: YYYY-MM-DD
-category: Category Name
+category: Category 1, Category 2
 slug: url-friendly-title
 ---
 
