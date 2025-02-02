@@ -122,7 +122,9 @@ async function generateIndex(posts) {
     const template = await fs.readFile(path.join(__dirname, 'templates/index.html'), 'utf-8');
     
     // Get unique categories
-    const categories = [...new Set(posts.map(post => post.category))];
+    const categories = [...new Set(posts.flatMap(post => 
+        (post.category || '').split(',').map(cat => cat.trim())
+    ))].filter(Boolean);
     const categoryTags = categories
         .map(category => `
             <button class="category-tag" data-category="${category}">${category}</button>
@@ -131,10 +133,29 @@ async function generateIndex(posts) {
 
     // Generate posts HTML
     const postsHtml = posts
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .map(post => `
-            <article class="article-card" data-category="${post.category}">
-                <div class="category">${post.category}</div>
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .map(post => {
+        // Split categories and trim whitespace
+        const postCategories = (post.category || '').split(',').map(cat => cat.trim());
+        const primaryCategory = postCategories[0];
+        const secondaryCategories = postCategories.slice(1);
+        
+        // Create a data attribute with all categories
+        const allCategories = postCategories.join('|');
+        
+        // Generate the categories HTML
+        const categoriesHtml = `
+            <div class="categories-container">
+                <div class="category-primary">${primaryCategory}</div>
+                ${secondaryCategories.length > 0 ? 
+                    `<div class="categories-secondary">${secondaryCategories.join(' · ')}</div>` 
+                    : ''}
+            </div>
+        `;
+
+        return `
+            <article class="article-card" data-categories="${allCategories}">
+                ${categoriesHtml}
                 <h2 class="article-title">
                     <a href="/posts/${post.slug}.html">${post.title}</a>
                 </h2>
@@ -146,8 +167,9 @@ async function generateIndex(posts) {
                     })}
                 </div>
             </article>
-        `)
-        .join('\n');
+        `;
+    })
+    .join('\n');
     
     return template
         .replace('{{categories}}', categoryTags)
