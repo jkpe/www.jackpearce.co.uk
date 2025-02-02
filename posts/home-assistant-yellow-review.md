@@ -3,7 +3,7 @@ title: "Home Assistant Yellow: 5 Months Later"
 slug: home-assistant-yellow-review
 date: 2023-12-07T06:27:00.000Z
 excerpt: My review of the Home Assistant Yellow 5 having used it for 5 months.
-category: "Home Automation"
+category: "Home Automation, Home Lab"
 ---
 
 ### What is Home Assistant Yellow

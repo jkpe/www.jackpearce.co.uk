@@ -3,7 +3,7 @@ title: Automating My Home Assistant History - AI-Powered GitHub Releases for Aut
 slug: ai-powered-github-actions-automating-home-assistant-history
 date: 2024-07-07T22:00:00.000Z
 excerpt: Discover how to automate your Home Assistant journey using AI and GitHub Actions. This innovative workflow creates an intelligent, self-updating chronicle of your smart home evolution, complete with AI-generated commit messages and automatic GitHub releases. Learn how to turn your automation history into a living document that grows with your smart home.
-category: "Language Models"
+category: "Home Automation, Language Models"
 ---
 
 As a Home Assistant enthusiast, I'm always looking for ways to improve my smart home setup. Recently, I developed a GitHub Actions workflow that automatically tracks changes to my Home Assistant automations, uses AI to generate commit messages, and creates GitHub releases for each update. This post details how I automated the automation of my automation history. (Try saying that five times fast!)

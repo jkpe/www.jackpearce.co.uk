@@ -3,7 +3,7 @@ title: How I Automated Home Assistant Updates with GitHub Actions
 slug: automating-home-assistant-updates-with-github-actions
 date: 2024-07-06T09:00:00.000Z
 excerpt: In this post, I share how I automated the update process for my Home Assistant setup using GitHub Actions, Renovate, Tailscale, and the Home Assistant CLI. This project not only ensured my system is always up-to-date but also provided a great opportunity to practice building CI/CD pipelines.
-category: "Language Models"
+category: "Home Automation, Language Models"
 ---
 
 As an avid Home Assistant user and a fan of automation, I embarked on a project to streamline the update process of my Home Assistant setup. This journey led me to create a set of workflows using GitHub Actions, Renovate, Tailscale, and the Home Assistant CLI (ha). While this automation might seem unnecessary, it was an excellent opportunity to practice building CI/CD pipelines for one of my favorite projects.

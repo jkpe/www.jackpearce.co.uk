@@ -2,7 +2,7 @@
 title: Home Assistant - Nest Thermostat
 slug: home-assistant-nest-thermostat
 date: 2019-07-15T00:00:00.000Z
-category: "Home Automation"
+category: "Home Automation, Home Lab"
 ---
 
 **Update:** Home Assistant now has a native integration for Nest

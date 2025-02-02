@@ -3,7 +3,7 @@ title: How I used GPT-4o to rewrite and improve all my Home Assistant automation
 slug: home-assistant-automation-rewrite-llm-gpt4o
 date: 2024-07-12T18:00:00.000Z
 excerpt: How I used AI and LLMs to automatically rewrite and improve all my Home Assistant automation titles and descriptions.
-category: "Language Models"
+category: "Home Automation, Language Models"
 ---
 
 Over the years, I've set up multiple automations using Home Assistant. I'll admit I've been lazy when it comes to naming and describing these automations. Adding a quick keyword or two and calling it a day. As an example, an automation that turns on a light when a car is detected might simply be called "car light".
