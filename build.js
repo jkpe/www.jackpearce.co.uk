@@ -44,8 +44,6 @@ const calculateReadTime = (content) => {
 async function generatePost(metadata, htmlContent) {
     try {
         const templatePath = path.join(__dirname, 'templates', 'post.html');
-        console.log('Loading template from:', templatePath);
-        
         const template = await fs.readFile(templatePath, 'utf-8');
         
         // Format the date
@@ -55,12 +53,27 @@ async function generatePost(metadata, htmlContent) {
             day: 'numeric'
         });
 
-        // Create a regex for each template variable to ensure all instances are replaced
+        // Process categories
+        const categories = metadata.category.split(',').map(cat => cat.trim());
+        const primaryCategory = categories[0];
+        const secondaryCategories = categories.slice(1);
+        
+        // Generate categories HTML
+        const categoriesHtml = `
+            <div class="categories-container">
+                <span class="category-primary">${primaryCategory}</span>
+                ${secondaryCategories.length > 0 ? 
+                    `<span class="categories-secondary">${secondaryCategories.join(' · ')}</span>` 
+                    : ''}
+            </div>
+        `;
+
+        // Replace template variables
         const replacements = {
             '{{title}}': metadata.title,
             '{{slug}}': metadata.slug,
             '{{date}}': formattedDate,
-            '{{category}}': metadata.category,
+            '{{category}}': categoriesHtml,  // Now replacing with HTML structure
             '{{readTime}}': metadata.readTime,
             '{{content}}': htmlContent
         };
