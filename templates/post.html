@@ -91,21 +91,47 @@
         }
 
         .post-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 1rem;
+          color: var(--text-secondary);
+          font-size: 0.9rem;
         }
-
-        .category {
-            color: var(--accent);
-            font-weight: 500;
+        
+        /* Left side - categories */
+        .categories-container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
         }
-
+        
+        .category-primary {
+          color: var(--accent);
+          font-weight: 500;
+        }
+        
+        .categories-secondary {
+          font-size: 0.8rem;
+          color: var(--text-secondary);
+        }
+        
+        /* Right side - other metadata */
+        .meta-right {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
+        
+        .date, .reading-time, .source-link {
+          white-space: nowrap;
+        }
+        
         .source-link {
-            color: var(--accent);
-            font-weight: 500;
+          color: var(--accent);
+          font-weight: 500;
         }
 
         /* Content */
@@ -249,6 +275,15 @@
                 margin-top: 2rem;
                 padding: 1.5rem 0;
             }
+            .post-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .meta-right {
+                justify-content: flex-start;
+                gap: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -282,12 +317,14 @@
         <header class="header">
             <h1>{{title}}</h1>
             <div class="post-meta">
-                <span class="category">{{category}}</span>
-                <span class="date">{{date}}</span>
-                <span class="reading-time">{{readTime}} min read</span>
-                <a href="https://github.com/jkpe/www.jackpearce.co.uk/tree/main/posts/{{slug}}.md" target="_blank" rel="noopener noreferrer" class="source-link">
-                    View source
-                </a>
+                {{category}}
+                <div class="meta-right">
+                    <span class="date">{{date}}</span>
+                    <span class="reading-time">{{readTime}} min read</span>
+                    <a href="https://github.com/jkpe/www.jackpearce.co.uk/tree/main/posts/{{slug}}.md" target="_blank" rel="noopener noreferrer" class="source-link">
+                        View source
+                    </a>
+                </div>
             </div>
         </header>
         
