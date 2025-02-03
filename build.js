@@ -69,14 +69,19 @@ async function generatePost(metadata, htmlContent) {
             </div>
         `;
 
+        // Generate canonical URL
+        const canonicalUrl = `${siteMetadata.siteUrl}/posts/${metadata.slug}`;
+
         // Replace template variables
         const replacements = {
             '{{title}}': metadata.title,
             '{{slug}}': metadata.slug,
             '{{date}}': formattedDate,
-            '{{category}}': categoriesHtml,  // Now replacing with HTML structure
+            '{{category}}': categoriesHtml,
             '{{readTime}}': metadata.readTime,
-            '{{content}}': htmlContent
+            '{{content}}': htmlContent,
+            '<meta rel="canonical" href="https://www.jackpearce.co.uk">': 
+                `<meta rel="canonical" href="${canonicalUrl}">`
         };
 
         // Replace all occurrences of each template variable
