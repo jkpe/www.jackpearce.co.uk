@@ -2,7 +2,7 @@
 title: Using Trooli FTTP with a Ubiquiti Dream Machine (IPv6)
 slug: trooli-fttp-ubiquiti-dream-machine-pppoe
 date: 2024-08-25T00:00:00.000Z
-excerpt: If you're a UK resident enjoying the benefits of Trooli's ultra-fast 1Gb FTTP broadband package and want to use your Ubiquiti Dream Machine (UDM) for a more robust home network experience, you're in the right place. This guide will walk you through the process of setting up your Ubiquiti Dream Machine with Trooli's network, bypassing the default Technicolor DGA4134 router.
+excerpt: A technical guide for configuring a Ubiquiti Dream Machine to work with Trooli's FTTP service in the UK, including steps to obtain PPPoE credentials and set up IPv6 connectivity by bypassing the provided Technicolor DGA4134 router.
 category: "Home Lab"
 ---
 
@@ -44,13 +44,13 @@ Here's what the relevant line might look like:
 - **PPPOEUSERNAME** is your actual PPPoE username.
 - **PPPOEPASSWORD** is your actual PPPoE password.
 
-Make a note of both the username and password, as you’ll need them to set up your Ubiquiti Dream Machine.
+Make a note of both the username and password, as you'll need them to set up your Ubiquiti Dream Machine.
 
 ### **Step 5: Configure Your Ubiquiti Dream Machine**
 
-Now that you have your PPPoE credentials, it’s time to configure your UDM:
+Now that you have your PPPoE credentials, it's time to configure your UDM:
 
-1. **Access the UDM Settings:** Connect to the UDM’s Wi-Fi network and open the Ubiquiti Network application. Alternatively, you can connect directly via a wired connection to the UDM and access the settings through a web browser.
+1. **Access the UDM Settings:** Connect to the UDM's Wi-Fi network and open the Ubiquiti Network application. Alternatively, you can connect directly via a wired connection to the UDM and access the settings through a web browser.
    
 2. **Navigate to Network Settings:** Go to `Network` > `Settings`.
 
