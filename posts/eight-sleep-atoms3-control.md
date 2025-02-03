@@ -2,7 +2,7 @@
 title: "Controlling Eight Sleep with an ATOMS3 Dev Kit"
 slug: eight-sleep-atoms3-control
 date: 2025-01-03T19:00:00.000Z
-excerpt: Simplify temperature control for your Eight Sleep bed with an ATOMS3 Dev Kit and Home Assistant.
+excerpt: A hardware interface for Eight Sleep temperature control using an ATOMS3 Dev Kit, displaying current bed temperature, sleep stage, and bed state on a small screen with button control for temperature adjustments through Home Assistant.
 category: "Home Automation"
 ---
 
@@ -14,9 +14,7 @@ The device shows the current temperature, target heating level, sleep stage, and
 
 If you have ideas for improving this setup or additional features you'd like to see, feel free to share your suggestions in the comments or the [Github Repo](https://github.com/jkpe/eight-sleep-m5stack-atoms3).
 
-
 <img src="https://images.jackpearce.co.uk/atoms3-eightsleep.jpeg" alt="Featured Image" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px;">
-
 
 ## Features
 
@@ -276,7 +274,7 @@ binary_sensor:
    ```
 
 2. **Percentage to App Scale Conversion**:
-   This template converts the sensor’s -100% to 100% range into the app’s -10 to 10 scale, rounding to the nearest whole number.
+   This template converts the sensor's -100% to 100% range into the app's -10 to 10 scale, rounding to the nearest whole number.
 
    ```yaml
    {% set value = states('sensor.jack_s_eight_sleep_side_bed_state') | float %}
