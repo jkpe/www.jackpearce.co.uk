@@ -2,7 +2,7 @@
 title: How I used GPT-4o to rewrite and improve all my Home Assistant automation titles and descriptions.
 slug: home-assistant-automation-rewrite-llm-gpt4o
 date: 2024-07-12T18:00:00.000Z
-excerpt: How I used AI and LLMs to automatically rewrite and improve all my Home Assistant automation titles and descriptions.
+excerpt: A technical walkthrough of using GPT-4o to automatically generate clear, descriptive titles and descriptions for Home Assistant automations from their YAML configurations.
 category: "Home Automation, Language Models"
 ---
 
