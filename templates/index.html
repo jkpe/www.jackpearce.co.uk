@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Pearce's Tech Blog</title>
+    <title>jackpearce.co.uk</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Jack Pearce's technical blog exploring home automation, cloud architecture, and artificial intelligence. Sharing insights and experiences in software development and technology.">
+    <meta name="keywords" content="home automation, cloud architecture, artificial intelligence, software development, tech blog">
+    <meta name="author" content="Jack Pearce">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://jackpearce.co.uk">
+    
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Dark mode variables */
         :root {
@@ -83,7 +96,7 @@
             fill: currentColor;
         }
 
-        /* Categories at top */
+        /* Categories */
         .categories {
             background: var(--bg-secondary);
             padding: 2rem;
@@ -127,10 +140,12 @@
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
         .header p {
@@ -138,11 +153,11 @@
             color: var(--text-secondary);
         }
 
-        /* Article Grid */
+        /* Article Grid - Modified for single column */
         .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
@@ -153,13 +168,21 @@
             transition: all 0.3s ease;
         }
 
-        /* .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 20px var(--card-shadow);
-        } */
+        .article-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-header-main {
+            flex-grow: 1;
+        }
 
         .categories-container {
-            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .category-primary {
@@ -168,14 +191,13 @@
             font-size: 0.9rem;
             color: var(--accent);
             font-weight: 500;
-            margin-bottom: 0.25rem;
         }
 
         .category-primary::before {
             content: '';
             display: inline-block;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: var(--accent);
             border-radius: 50%;
             margin-right: 0.5rem;
@@ -184,15 +206,13 @@
         .categories-secondary {
             font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-left: 1rem;
-            display: block;
         }
 
         .article-title {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .article-title a {
@@ -207,6 +227,13 @@
         .article-meta {
             font-size: 0.875rem;
             color: var(--text-secondary);
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            line-height: 1.5;
         }
 
         /* Footer */
@@ -237,7 +264,7 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
-                padding: 1rem 0.75rem;
+                padding: 1rem;
             }
 
             .nav {
@@ -263,55 +290,20 @@
                 display: none;
             }
 
-            .header {
-                margin-bottom: 2rem;
-                padding: 0.5rem 0;
-            }
-
             .header h1 {
-                font-size: 1.75rem;
-                margin-bottom: 0.75rem;
-                margin-left: 0.5rem;
+                font-size: 2rem;
             }
 
-            .header p {
-                font-size: 1rem;
-                margin-left: 0.5rem;
+            .article-title {
+                font-size: 1.25rem;
             }
 
             .categories {
                 padding: 1.25rem;
-                margin-bottom: 2rem;
-                margin-left: 0.5rem;
-                margin-right: 0.5rem;
-                border-radius: 8px;
             }
 
-            .category-tags {
-                gap: 0.5rem;
-            }
-
-            .category-tag {
-                padding: 0.375rem 0.75rem;
-                font-size: 0.8125rem;
-            }
-
-            .article-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-            }
-
-            .article-card {
-                padding: 1.25rem;
-            }
-
-            .article-title {
-                font-size: 1.125rem;
-            }
-
-            .footer {
-                margin-top: 2rem;
-                padding: 1.5rem 0;
+            .nav-links {
+                gap: 1rem;
             }
         }
     </style>
@@ -343,7 +335,7 @@
         </nav>
 
         <header class="header">
-            <h1>Jack's Tech Blog</h1>
+            <h1>Jack Pearce</h1>
             <p>Exploring home automation, cloud architecture, and artificial intelligence.</p>
         </header>
 
