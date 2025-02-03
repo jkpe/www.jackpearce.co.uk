@@ -2,7 +2,7 @@
 title: Running cloudflared on OPNSense
 slug: cloudflared-opnsense
 date: 2022-09-22T06:27:00.000Z
-excerpt: I use [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/) to provide a secure tunnel to my home resources. I struggled to find any instructions for running cloudflared on OPNSense so here is a quick how-to.
+excerpt: I use cloudflared to provide a secure tunnel to my home resources. I struggled to find any instructions for running cloudflared on OPNSense so here is a quick how-to.
 category: "Home Lab"
 ---
 

@@ -2,7 +2,7 @@
 title: Building helpful contextual chat bots is easy using OpenAI's Assistants (part 1)
 slug: building-helpful-chat-bots-is-easy-using-openai-assistants
 date: 2023-11-09T06:27:00.000Z
-excerpt: Today, I'm going to show how I used OpenAI GPT-4 and OpenAI Assistants to build a bot that answers questions around DigitalOcean's documentation.
+excerpt: How I used OpenAI GPT-4 and OpenAI Assistants to build a bot that answers questions around DigitalOcean's documentation.
 category: "Language Models"
 ---
 

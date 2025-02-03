@@ -2,7 +2,7 @@
 title: Dell Wyse 3040 as a WireGuard Router
 slug: dell-wyse-3040-as-a-wireguard-router
 date: 2023-03-23
-excerpt: I recently purchased a Dell Wyse 3040 off of eBay for £30. They're designed to be used as thin clients but make excellent Linux servers in any homelab.
+excerpt: A guide to repurposing a Dell Wyse 3040 thin client as a WireGuard VPN router with AdGuard for DNS and DHCP services, achieving speeds up to 850Mbps.
 category: "Home Lab"
 ---
 

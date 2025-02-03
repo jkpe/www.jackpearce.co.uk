@@ -2,7 +2,7 @@
 title: How to deploy Ghost on DigitalOcean App Platform
 slug: deploy-ghost-on-digitalocean-app-platform
 date: 2022-10-14T17:00:00.000Z
-excerpt: Today we will look at deploying Ghost on DigitalOcean App Platform.
+excerpt: Deploying Ghost on DigitalOcean App Platform.
 category: "Cloud Architecture" 
 ---
 
