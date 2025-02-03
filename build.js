@@ -149,37 +149,34 @@ async function generateIndex(posts) {
     const postsHtml = posts
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .map(post => {
-        // Split categories and trim whitespace
         const postCategories = (post.category || '').split(',').map(cat => cat.trim());
         const primaryCategory = postCategories[0];
         const secondaryCategories = postCategories.slice(1);
-        
-        // Create a data attribute with all categories
         const allCategories = postCategories.join('|');
         
-        // Generate the categories HTML
-        const categoriesHtml = `
-            <div class="categories-container">
-                <div class="category-primary">${primaryCategory}</div>
-                ${secondaryCategories.length > 0 ? 
-                    `<div class="categories-secondary">${secondaryCategories.join(' · ')}</div>` 
-                    : ''}
-            </div>
-        `;
-
         return `
             <article class="article-card" data-categories="${allCategories}">
-                ${categoriesHtml}
+                <div class="article-header">
+                    <div class="article-header-main">
+                        <div class="categories-container">
+                            <div class="category-primary">${primaryCategory}</div>
+                            ${secondaryCategories.length > 0 ? 
+                                `<div class="categories-secondary">· ${secondaryCategories.join(' · ')}</div>` 
+                                : ''}
+                        </div>
+                    </div>
+                    <div class="article-meta">
+                        ${new Date(post.date).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric'
+                        })}
+                    </div>
+                </div>
                 <h2 class="article-title">
                     <a href="/posts/${post.slug}.html">${post.title}</a>
                 </h2>
-                <div class="article-meta">
-                    ${new Date(post.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'short', 
-                        day: 'numeric'
-                    })}
-                </div>
+                ${post.excerpt ? `<div class="article-excerpt">${post.excerpt}</div>` : ''}
             </article>
         `;
     })
