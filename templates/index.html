@@ -12,12 +12,21 @@
     <meta name="robots" content="index, follow">
     
     <!-- Canonical URL -->
-    <meta rel="canonical" href="https://jackpearce.co.uk">
+    <meta rel="canonical" href="https://www.jackpearce.co.uk">
     
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Immediately set the theme before the page renders
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.className = savedTheme;
+        })();
+    </script>
+
     <style>
         /* Dark mode variables */
         :root {
@@ -373,26 +382,18 @@
     </div>
 
     <script>
-        // Dark mode toggle
-        const html = document.documentElement;
+        // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
         
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            html.className = savedTheme;
-            themeToggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            html.className = 'dark';
-            themeToggle.textContent = 'Light Mode';
-        }
-
+        // Set initial button text
+        themeToggle.textContent = html.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+        
         themeToggle.addEventListener('click', (e) => {
             e.preventDefault();
-            const isDark = html.className === 'dark';
-            html.className = isDark ? 'light' : 'dark';
-            themeToggle.textContent = isDark ? 'Dark Mode' : 'Light Mode';
-            localStorage.setItem('theme', html.className);
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
         });
 
         // Category filtering
