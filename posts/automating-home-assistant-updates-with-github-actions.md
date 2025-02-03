@@ -2,7 +2,7 @@
 title: How I Automated Home Assistant Updates with GitHub Actions
 slug: automating-home-assistant-updates-with-github-actions
 date: 2024-07-06T09:00:00.000Z
-excerpt: A detailed walkthrough of implementing automated Home Assistant updates using GitHub Actions, Renovate, Tailscale, and the Home Assistant CLI. The setup includes workflows for both Core and OS updates with secure remote execution.
+excerpt: A GitHub Actions setup that automatically updates Home Assistant Core and OS versions when new releases are available. Uses Renovate for version detection, Tailscale for secure remote access, and the Home Assistant CLI for executing updates.
 category: "Home Automation, Language Models"
 ---
 
