@@ -179,7 +179,7 @@ async function generateIndex(posts) {
                     </div>
                 </div>
                 <h2 class="article-title">
-                    <a href="/posts/${post.slug}.html">${post.title}</a>
+                    <a href="/posts/${post.slug}">${post.title}</a>
                 </h2>
                 ${post.excerpt ? `<div class="article-excerpt">${post.excerpt}</div>` : ''}
             </article>
