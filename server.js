@@ -5,9 +5,22 @@ const app = express();
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// For single page applications - redirect all requests to index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// Handle HTML files without extension
+app.get('*', (req, res, next) => {
+  let url = req.path;
+  // Skip if the url already has an extension
+  if (path.extname(url) !== '') {
+    return next();
+  }
+  
+  // Try to serve the HTML file
+  const filePath = path.join(__dirname, 'dist', `${url}.html`);
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      // If HTML file doesn't exist, fall through to index.html
+      res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    }
+  });
 });
 
 const PORT = process.env.PORT || 3000;
