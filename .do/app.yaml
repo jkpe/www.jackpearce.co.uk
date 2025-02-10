@@ -1,6 +1,9 @@
 alerts:
 - rule: DEPLOYMENT_FAILED
 - rule: DOMAIN_FAILED
+domains:
+- domain: www.jackpearce.co.uk
+  type: PRIMARY
 features:
 - buildpack-stack=ubuntu-22
 ingress:
@@ -19,7 +22,7 @@ services:
     branch: main
     deploy_on_push: true
     repo: jkpe/www.jackpearce.co.uk
-  http_port: 80
+  http_port: 3000
   instance_count: 1
   instance_size_slug: apps-s-1vcpu-0.5gb
   name: www-jackpearce-co-uk
