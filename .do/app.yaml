@@ -1,0 +1,27 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: www-jackpearce-co-uk
+    match:
+      path:
+        prefix: /
+name: blog
+region: lon
+services:
+- build_command: node build.js
+  environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jkpe/www.jackpearce.co.uk
+  http_port: 80
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: www-jackpearce-co-uk
+  run_command: node server.js
+  source_dir: /
