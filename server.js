@@ -12,7 +12,9 @@ app.get('*', (req, res, next) => {
   
   // Handle .html extension
   if (url.endsWith('.html')) {
-    return res.redirect(301, url.slice(0, -5) + '/' + query);
+    // Remove .html and add trailing slash
+    const canonicalPath = url.slice(0, -5) + '/';
+    return res.redirect(301, canonicalPath + query);
   }
   
   // Skip if URL already has trailing slash or has a non-html extension
@@ -21,7 +23,7 @@ app.get('*', (req, res, next) => {
   }
   
   // Redirect to URL with trailing slash
-  res.redirect(301, req.path + '/' + query);
+  res.redirect(301, url + '/' + query);
 });
 
 // Handle HTML files without extension
