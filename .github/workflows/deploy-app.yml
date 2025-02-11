@@ -1,8 +1,8 @@
 name: Deploy App to DO App Platform
 
 on:
-#  push:
-#    branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
