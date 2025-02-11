@@ -5,17 +5,29 @@ const app = express();
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
+// Redirect URLs without trailing slash to URLs with trailing slash
+app.get('*', (req, res, next) => {
+  const url = req.path;
+  // Skip if URL already has trailing slash or has a file extension
+  if (url.endsWith('/') || path.extname(url) !== '') {
+    return next();
+  }
+  // Redirect to URL with trailing slash
+  res.redirect(301, req.path + '/' + req.url.slice(req.path.length));
+});
+
 // Handle HTML files without extension
 app.get('*', (req, res, next) => {
-  // Remove trailing slash except for root path
   let url = req.path;
-  if (url.length > 1 && url.endsWith('/')) {
-    url = url.slice(0, -1);
-  }
-
-  // Skip if the url already has an extension
+  
+  // Skip if the url has an extension
   if (path.extname(url) !== '') {
     return next();
+  }
+  
+  // Remove the trailing slash for file lookup
+  if (url.endsWith('/')) {
+    url = url.slice(0, -1);
   }
   
   // Try to serve the HTML file
