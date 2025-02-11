@@ -7,7 +7,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handle HTML files without extension
 app.get('*', (req, res, next) => {
+  // Remove trailing slash except for root path
   let url = req.path;
+  if (url.length > 1 && url.endsWith('/')) {
+    url = url.slice(0, -1);
+  }
+
   // Skip if the url already has an extension
   if (path.extname(url) !== '') {
     return next();
