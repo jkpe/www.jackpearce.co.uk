@@ -13,6 +13,244 @@ ingress:
     match:
       path:
         prefix: /
+  - match:
+      path:
+        prefix: /eight-sleep-atoms3-control/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/eight-sleep-atoms3-control/
+  - match:
+      path:
+        prefix: /trooli-fttp-ubiquiti-dream-machine-pppoe/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/trooli-fttp-ubiquiti-dream-machine-pppoe/
+  - match:
+      path:
+        prefix: /home-assistant-automation-rewrite-llm-gpt4o/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/home-assistant-automation-rewrite-llm-gpt4o/
+  - match:
+      path:
+        prefix: /ai-powered-github-actions-automating-home-assistant-history/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/ai-powered-github-actions-automating-home-assistant-history/
+  - match:
+      path:
+        prefix: /automating-home-assistant-updates-with-github-actions/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/automating-home-assistant-updates-with-github-actions/
+  - match:
+      path:
+        prefix: /eight-sleep-pod-3-my-thoughts/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/eight-sleep-pod-3-my-thoughts/
+  - match:
+      path:
+        prefix: /home-assistant-yellow-review/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/home-assistant-yellow-review/
+  - match:
+      path:
+        prefix: /building-helpful-chat-bots-is-easy-using-openai-assistants/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/building-helpful-chat-bots-is-easy-using-openai-assistants/
+  - match:
+      path:
+        prefix: /automating-docker-in-a-homelab/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/automating-docker-in-a-homelab/
+  - match:
+      path:
+        prefix: /running-rook-ceph-on-digitalocean-doks-managed-kubernetes/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/running-rook-ceph-on-digitalocean-doks-managed-kubernetes/
+  - match:
+      path:
+        prefix: /dell-wyse-3040-as-a-wireguard-router/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/dell-wyse-3040-as-a-wireguard-router/
+  - match:
+      path:
+        prefix: /digitalocean-kubernetes-doks-and-netmaker/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/digitalocean-kubernetes-doks-and-netmaker/
+  - match:
+      path:
+        prefix: /1gb-internet/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/1gb-internet/
+  - match:
+      path:
+        prefix: /deploy-ghost-on-digitalocean-app-platform/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/deploy-ghost-on-digitalocean-app-platform/
+  - match:
+      path:
+        prefix: /home-assistant-google-assistant-local-connectivity/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/home-assistant-google-assistant-local-connectivity/
+  - match:
+      path:
+        prefix: /cloudflared-opnsense/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/cloudflared-opnsense/
+  - match:
+      path:
+        prefix: /icloud-custom-email-domains-is-slightly-better-now/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/icloud-custom-email-domains-is-slightly-better-now/
+  - match:
+      path:
+        prefix: /automatically-decrypting-mounting-unraid-array-at-boot/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/automatically-decrypting-mounting-unraid-array-at-boot/
+  - match:
+      path:
+        prefix: /adding-lsi9211-hp-microserver-gen8/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/adding-lsi9211-hp-microserver-gen8/
+  - match:
+      path:
+        prefix: /have-a-lightning-fast-blog-and-host-it-for-free-github-actions-cloudflare-workers/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/have-a-lightning-fast-blog-and-host-it-for-free-github-actions-cloudflare-workers/
+  - match:
+      path:
+        prefix: /replacing-ring-ring-jurassic-park-theme-song-using-pbx/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/replacing-ring-ring-jurassic-park-theme-song-using-pbx/
+  - match:
+      path:
+        prefix: /making-wireguard-vpn-work-with-ee-4g-in-the-uk/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/making-wireguard-vpn-work-with-ee-4g-in-the-uk/
+  - match:
+      path:
+        prefix: /home-assistant-nest-thermostat/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/home-assistant-nest-thermostat/
+  - match:
+      path:
+        prefix: /automating-alexa-guard/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/automating-alexa-guard/
+  - match:
+      path:
+        prefix: /sky-broadband-transparent-dns-proxy/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/sky-broadband-transparent-dns-proxy/
+  - match:
+      path:
+        prefix: /social-attack-against-sim-cards/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/social-attack-against-sim-cards/
+  - match:
+      path:
+        prefix: /investigating-the-dirty-world-of-phishing-emails/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/investigating-the-dirty-world-of-phishing-emails/
+  - match:
+      path:
+        prefix: /have-a-lightning-fast-blog-and-host-it-for-free/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/have-a-lightning-fast-blog-and-host-it-for-free/
+  - match:
+      path:
+        prefix: /organising-a-massive-photo-collection/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/organising-a-massive-photo-collection/
+  - match:
+      path:
+        prefix: /virgin-media-why-are-you-manipulating-my-traffic/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/virgin-media-why-are-you-manipulating-my-traffic/
+  - match:
+      path:
+        prefix: /everpix-is-awesome/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/everpix-is-awesome/
+  - match:
+      path:
+        prefix: /securing-your-digital-world/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/securing-your-digital-world/
+  - match:
+      path:
+        prefix: /yubikey-mac-os-x-filevault/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/yubikey-mac-os-x-filevault/
+  - match:
+      path:
+        prefix: /ipv6-over-ipv4-at-home/
+    redirect:
+      authority: www.jackpearce.co.uk
+      redirect_code: 301
+      uri: /posts/ipv6-over-ipv4-at-home/
 name: blog
 region: lon
 services:
