@@ -8,10 +8,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // Redirect URLs without trailing slash and .html URLs to canonical form
 app.get('*', (req, res, next) => {
   const url = req.path;
+  const query = req.url.slice(req.path.length); // preserve query string
   
   // Handle .html extension
   if (url.endsWith('.html')) {
-    return res.redirect(301, url.slice(0, -5) + '/');
+    return res.redirect(301, url.slice(0, -5) + '/' + query);
   }
   
   // Skip if URL already has trailing slash or has a non-html extension
@@ -20,7 +21,7 @@ app.get('*', (req, res, next) => {
   }
   
   // Redirect to URL with trailing slash
-  res.redirect(301, req.path + '/' + req.url.slice(req.path.length));
+  res.redirect(301, req.path + '/' + query);
 });
 
 // Handle HTML files without extension
