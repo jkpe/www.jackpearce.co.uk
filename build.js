@@ -69,8 +69,8 @@ async function generatePost(metadata, htmlContent) {
             </div>
         `;
 
-        // Generate canonical URL
-        const canonicalUrl = `${siteMetadata.siteUrl}/posts/${metadata.slug}`;
+        // Generate canonical URL - add trailing slash
+        const canonicalUrl = `${siteMetadata.siteUrl}/posts/${metadata.slug}/`;
 
         // Replace template variables
         const replacements = {
@@ -179,7 +179,7 @@ async function generateIndex(posts) {
                     </div>
                 </div>
                 <h2 class="article-title">
-                    <a href="/posts/${post.slug}">${post.title}</a>
+                    <a href="/posts/${post.slug}/">${post.title}</a>
                 </h2>
                 ${post.excerpt ? `<div class="article-excerpt">${post.excerpt}</div>` : ''}
             </article>
