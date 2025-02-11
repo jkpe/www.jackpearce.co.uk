@@ -9,7 +9,7 @@ features:
 ingress:
   rules:
   - component:
-      name: www-jackpearce-co-uk
+      name: blog-service
     match:
       path:
         prefix: /
