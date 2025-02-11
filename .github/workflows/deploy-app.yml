@@ -15,7 +15,7 @@ jobs:
      - name: Checkout repository
        uses: actions/checkout@v4
      - name: Deploy the app
-       uses: digitalocean/app_action/deploy@v2
+       uses: digitalocean/app_action/deploy@v2.0.8
        with:
          token: ${{ secrets.DO_TOKEN }} 
          project_id: a420947b-e41a-48b8-8889-febfa138b556
