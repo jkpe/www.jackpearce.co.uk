@@ -4,7 +4,7 @@
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.8.0",
     "html-minifier": "^4.0.0",
-    "marked": "^9.0.0"
+    "marked": "^15.0.0"
   },
   "scripts": {
     "build": "node build.js",
