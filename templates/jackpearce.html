@@ -228,6 +228,31 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Footer styles */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .heart {
+            color: #e11d48;
+            display: inline-block;
+            margin: 0 0.25rem;
+        }
     </style>
 </head>
 <body>
@@ -270,12 +295,13 @@
                 <div class="certifications-section">
                     <h3>Certifications</h3>
                     <ul class="cert-list">
-                        <li><a href="#">CKA: Certified Kubernetes Administrator</a></li>
-                        <li><a href="#">Generative AI by Google</a></li>
-                        <li><a href="#">Oracle Cloud Infrastructure Certified Architect Associate</a></li>
-                        <li><a href="#">AWS Certified Cloud Practitioner</a></li>
+                        <li><a href="https://www.credly.com/badges/a248d7d5-f27c-45bf-aece-4ec69df3b64e/public_url">CKA: Certified Kubernetes Administrator</a></li>
+                        <li><a href="https://www.linkedin.com/learning/certificates/9becdc257afdff339c213eef6bcdefbd3499b00f97b0ff3f058e2008a0d8b8bc?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BdoCd47mpSDSx04EpMgdS3Q%3D%3D">Docker Foundations Professional Certificate</a></li>
+                        <li><a href="https://www.cloudskillsboost.google/public_profiles/e345712c-2e1f-4615-8914-31fe25a4aed8">Generative AI by Google</a></li>
+                        <li><a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=C5CB9106028659758ECCACA31526BDE26904709FD5BC9F0D94D1BE1783926F1C">Oracle Cloud Infrastructure Certified Architect Associate</a></li>
+                        <li><a href="https://aws.amazon.com/certification/certified-cloud-practitioner/">AWS Certified Cloud Practitioner</a></li>
                         <li><a href="#">RHCSA - Red Hat Certified Systems Administrator</a></li>
-                        <li><a href="#">Server Virtualisation with Windows Server Hyper-V and System Center (74-409)</a></li>
+                        <li><a href="https://www.credly.com/badges/ee74b03a-790f-44b2-ad06-b95ecd7b6eba">Server Virtualisation with Windows Server Hyper-V and System Center (74-409)</a></li>
                         <li><a href="#">VMware Certified Associate – Data Center Virtualisation (VCAD510)</a></li>
                     </ul>
                 </div>
@@ -287,6 +313,14 @@
                 </div>
             </div>
         </main>
+
+        <footer class="footer">
+            This site uses a custom static site generator, the source code for the site can be found at 
+            <a href="https://github.com/jkpe/www.jackpearce.co.uk" target="_blank" rel="noopener noreferrer">
+                github.com/jkpe/www.jackpearce.co.uk
+            </a>
+            <span class="heart">♥</span>
+        </footer>
     </div>
 
     <script>
