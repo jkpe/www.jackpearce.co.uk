@@ -1,4 +1,4 @@
-name: Deploy App to DO App Platform
+name: App Platform - Deploy App
 
 on:
   release:
