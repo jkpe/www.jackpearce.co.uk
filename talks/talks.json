@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Building AI Agents That Retrieve Live Data",
+    "description": "One of the biggest challenges with AI models is their inability to access real-time data from external sources. But what if you could build an AI-powered agent that connects to APIs and provides up-to-date answers on demand?",
+    "date": "2025-02-22",
+    "event": "Linkedin",
+    "topic": "Generative AI Agents",
+    "thumbnail": "/images/talks/media_stream-0255b731096c4f36b8353b7d32507752.jpeg",
+    "videoUrl": "https://www.linkedin.com/posts/activity-7298741631011205122-J-eS?utm_source=share&utm_medium=member_desktop&rcm=ACoAADuXEw0BK3JZ4-uDNnWn5DbRshQNKgDEjXg",
+    "codeUrl": "https://github.com/DO-Solutions/do-api-functions"
+  },
+  {
+    "title": "Scalable AI with Kubernetes and GPUs",
+    "description": "Scaling AI applications can be complex, but leveraging Kubernetes and GPUs together can provide a powerful solution. Learn how to streamline AI workflows, from setting up multi-node GPU clusters to deploying and fine-tuning models with ease, with real-world examples like live Llama3 model inference and fine-tuning.",
+    "date": "2025-02-15",
+    "event": "Deploy 2025",
+    "topic": "Kubernetes",
+    "thumbnail": "/images/talks/TrCDCIWy7Tc.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=TrCDCIWy7Tc"
+  },
+  {
+    "title": "Why App Platform Is a Better Alternative to AWS for Startups",
+    "description": "Whether you’re a startup getting ready to deploy and host your first app, or a seasoned scale-up wanting to explore your options, join us to examine the pros and cons of AWS vs DigitalOcean App Platform.",
+    "date": "2024-08-12",
+    "event": "Webinar",
+    "topic": "Cloud Hosting",
+    "thumbnail": "/images/talks/RmDvWK81z7Q.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=RmDvWK81z7Q"
+  },
+  {
+    "title": "Running Meta Llama on DigitalOcean Kubernetes (DOKS) with NVIDIA NIM",
+    "description": "Discover how to run NVIDIA NIMS on DigitalOcean Kubernetes in this step-by-step demo with Jack Pearce, Senior Solutions Architect at DigitalOcean. We'll show you how to deploy a large language model, Meta Llama 3.1 on an Nvidia H100 GPU with DigitalOcean Kubernetes.",
+    "date": "2024-10-07",
+    "event": "YouTube",
+    "topic": "Kubernetes",
+    "thumbnail": "/images/talks/csm3e1RswOM.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=csm3e1RswOM",
+    "codeUrl": "https://github.com/bikram20/nim-deploy/tree/main/cloud-service-providers/DigitalOcean/DOKS"
+  },
+  {
+    "title": "Managed Kubernetes Made Easy",
+    "description": "Managed Kubernetes is growing in popularity, driven by organizations seeking ease of use, time and cost savings. Whether you’re using self-managed K8s, considering moving from another cloud provider, or just starting your Kubernetes journey, join us to learn how DigitalOcean simplifies Kubernetes adoption and management for the ISV community.",
+    "date": "2024-04-23",
+    "event": "Webinar",
+    "topic": "Kubernetes",
+    "thumbnail": "/images/talks/q1MQQtx2Vw8.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=q1MQQtx2Vw8"
+  },
+  {
+    "title": "Kubernetes Deployment with Zeet & DigitalOcean: Simplifying Application Hosting and Scaling",
+    "description": "Discover how Zeet and DigitalOcean help developers build, deploy, and scale applications easily. Johnny Dallas, CEO and Founder of Zeet, and Jack Pearce, Solutions Architect at DigitalOcean, discuss and demo how Zeet's cutting-edge platform seamlessly integrates with DigitalOcean's Managed Kubernetes (DOKS), offering developers simplicity and efficiency in deploying containerized applications.",
+    "date": "2024-05-16",
+    "event": "Webinar",
+    "topic": "Kubernetes",
+    "thumbnail": "/images/talks/myyG-Qlcm5s.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=myyG-Qlcm5s"
+  },
+  {
+    "title": "Secure Your Kubernetes Clusters and Workloads on DigitalOcean With ARMO",
+    "description": "In this video, you will learn how ARMO helps you secure your Kubernetes clusters and workloads on DigitalOcean or on-premises and how threats and malicious attacks are flagged and blocked with the ARMO Platform.",
+    "date": "2024-07-17",
+    "event": "Webinar",
+    "topic": "Kubernetes Security",
+    "thumbnail": "/images/talks/9SK-TSzsges.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=9SK-TSzsges"
+  }
+]

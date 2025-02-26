@@ -1,4 +1,4 @@
-name: App Platform Preview
+name: App Platform - Preview
 
 on:
   pull_request:

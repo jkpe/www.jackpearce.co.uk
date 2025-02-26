@@ -136,6 +136,144 @@ async function processPost(filePath) {
     };
 }
 
+// Function to generate talks page
+async function generateTalksPage(talks) {
+    try {
+        const templatePath = path.join(__dirname, 'templates', 'talks.html');
+        const template = await fs.readFile(templatePath, 'utf-8');
+        
+        // Get unique topics for filters
+        const topics = [...new Set(talks.map(talk => talk.topic))].filter(Boolean);
+        
+        // Generate filter buttons HTML
+        const filtersHtml = topics.map(topic => 
+            `<button class="filter-option" data-filter="${topic}">${topic}</button>`
+        ).join('\n');
+        
+        // Generate talks HTML
+        const talksHtml = talks
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map(talk => {
+                // Format date
+                const talkDate = new Date(talk.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                // Default thumbnail if not provided
+                const thumbnail = talk.thumbnail || '/images/talk-default.jpg';
+                
+                // Generate links HTML
+                const linksHtml = [];
+                
+                if (talk.slidesUrl) {
+                    linksHtml.push(`
+                        <a href="${talk.slidesUrl}" target="_blank" rel="noopener noreferrer" class="talk-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                            Slides
+                        </a>
+                    `);
+                }
+                
+                if (talk.videoUrl) {
+                    linksHtml.push(`
+                        <a href="${talk.videoUrl}" target="_blank" rel="noopener noreferrer" class="talk-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                            Watch
+                        </a>
+                    `);
+                }
+                
+                if (talk.codeUrl) {
+                    linksHtml.push(`
+                        <a href="${talk.codeUrl}" target="_blank" rel="noopener noreferrer" class="talk-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                            Code
+                        </a>
+                    `);
+                }
+                
+                return `
+                    <article class="talk-card" data-topic="${talk.topic || ''}">
+                        <img src="${thumbnail}" alt="${talk.title}" class="talk-thumbnail">
+                        <div class="talk-content">
+                            <h2 class="talk-title">${talk.title}</h2>
+                            <div class="talk-meta">
+                                <span class="talk-date">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    ${talkDate}
+                                </span>
+                                ${talk.event ? `
+                                <span class="talk-event">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    ${talk.event}
+                                </span>
+                                ` : ''}
+                            </div>
+                            <p class="talk-description">${talk.description || ''}</p>
+                            <div class="talk-links">
+                                ${linksHtml.join('\n')}
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('\n');
+        
+        // Replace template variables
+        let result = template;
+        result = result.replace('{{filters}}', filtersHtml);
+        result = result.replace('{{talks}}', talksHtml);
+        
+        // Minify the HTML
+        const minifiedHtml = minify(result, {
+            collapseWhitespace: true,
+            removeComments: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            useShortDoctype: true
+        });
+        
+        // Write the talks page
+        const outputPath = path.join(__dirname, 'dist', 'talks.html');
+        await fs.writeFile(outputPath, minifiedHtml);
+        
+        console.log('Talks page generated successfully!');
+        
+    } catch (error) {
+        console.error('Error generating talks page:', error);
+        throw error;
+    }
+}
+
+async function loadTalksData() {
+    try {
+        const talksPath = path.join(__dirname, 'talks', 'talks.json');
+        const talksData = await fs.readFile(talksPath, 'utf-8');
+        return JSON.parse(talksData);
+    } catch (error) {
+        console.warn('No talks data found, creating empty talks page');
+        return [];
+    }
+}
+
 // Generate index HTML
 async function generateIndex(posts) {
     const template = await fs.readFile(path.join(__dirname, 'templates/index.html'), 'utf-8');
@@ -199,10 +337,34 @@ async function build() {
         await fs.mkdir('dist', { recursive: true });
         await fs.mkdir('dist/posts', { recursive: true });
         
+        // Create images directory for talks thumbnails
+        await fs.mkdir('dist/images', { recursive: true }).catch(() => {});
+        await fs.mkdir('dist/images/talks', { recursive: true }).catch(() => {});
+        
         // Copy static assets
         await fs.copyFile('static/styles.css', 'dist/styles.css').catch(() => {
             console.warn('No styles.css found in static directory');
         });
+        
+        // Copy profile photo if it exists
+        await fs.copyFile('static/profile.jpg', 'dist/profile.jpg').catch(() => {
+            console.warn('No profile.jpg found in static directory');
+        });
+
+        // Copy talk thumbnails if they exist
+        try {
+            const talksImagesDir = path.join(__dirname, 'static', 'images', 'talks');
+            const imageFiles = await fs.readdir(talksImagesDir).catch(() => []);
+            
+            for (const file of imageFiles) {
+                await fs.copyFile(
+                    path.join(talksImagesDir, file), 
+                    path.join(__dirname, 'dist', 'images', 'talks', file)
+                ).catch(() => {});
+            }
+        } catch (error) {
+            console.warn('Error copying talk images:', error.message);
+        }
 
         // Copy about page
         await fs.copyFile('templates/jackpearce.html', 'dist/jackpearce.html').catch(() => {
@@ -230,6 +392,14 @@ async function build() {
         // Generate RSS feed using the imported function
         const rssFeed = generateRSS(posts, siteMetadata);
         await fs.writeFile('dist/rss.xml', rssFeed);
+        
+        // Generate talks page
+        try {
+            const talks = await loadTalksData();
+            await generateTalksPage(talks);
+        } catch (error) {
+            console.warn('Error generating talks page:', error.message);
+        }
         
         console.log('Build completed successfully!');
         
