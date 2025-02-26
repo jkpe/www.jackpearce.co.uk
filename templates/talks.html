@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
-
+    <title>Talks - Jack Pearce</title>
+    
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Jack Pearce's technical blog exploring home automation, cloud architecture, and artificial intelligence. Sharing insights and experiences in software development and technology.">
-    <meta name="keywords" content="home automation, cloud architecture, artificial intelligence, software development, tech blog">
+    <meta name="description" content="Talks and presentations by Jack Pearce on cloud architecture, Kubernetes, AI/ML infrastructure, and home automation.">
+    <meta name="keywords" content="talks, presentations, cloud architecture, kubernetes, artificial intelligence, tech talks">
     <meta name="author" content="Jack Pearce">
     <meta name="robots" content="index, follow">
     
     <!-- Canonical URL -->
-    <meta rel="canonical" href="https://www.jackpearce.co.uk">
+    <meta rel="canonical" href="https://www.jackpearce.co.uk/talks">
     
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <script>
         // Immediately set the theme before the page renders
@@ -27,7 +26,7 @@
             document.documentElement.className = savedTheme;
         })();
     </script>
-    
+
     <style>
         /* Dark mode variables */
         :root {
@@ -38,6 +37,7 @@
             --accent: #2563eb;
             --border: #e5e7eb;
             --card-shadow: rgba(0, 0, 0, 0.03);
+            --card-hover-shadow: rgba(0, 0, 0, 0.03);
         }
 
         html.dark {
@@ -48,22 +48,27 @@
             --accent: #60a5fa;
             --border: #404040;
             --card-shadow: rgba(0, 0, 0, 0.15);
+            --card-hover-shadow: rgba(0, 0, 0, 0.15);
         }
 
-        /* Base styles */
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background-color: var(--bg-primary);
-            transition: background-color 0.3s ease;
-            margin: 0;
-            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         /* Container */
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -74,6 +79,20 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
+        }
+        
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--accent);
         }
         
         .nav-links {
@@ -89,12 +108,13 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: color 0.2s ease;
         }
         
         .nav a:hover {
             color: var(--accent);
         }
-        
+
         .nav svg {
             width: 20px;
             height: 20px;
@@ -104,121 +124,154 @@
         /* Header */
         .header {
             margin-bottom: 3rem;
+            padding: 1rem 0;
         }
 
         .header h1 {
+            font-family: 'Libre Baskerville', serif;
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
-        .post-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: 1rem;
-          color: var(--text-secondary);
-          font-size: 0.9rem;
-        }
-        
-        /* Left side - categories */
-        .categories-container {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-        }
-        
-        .category-primary {
-          color: var(--accent);
-          font-weight: 500;
-        }
-        
-        .categories-secondary {
-          font-size: 0.8rem;
-          color: var(--text-secondary);
-        }
-        
-        /* Right side - other metadata */
-        .meta-right {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          flex-wrap: wrap;
-          justify-content: flex-end;
-        }
-        
-        .date, .reading-time, .source-link {
-          white-space: nowrap;
-        }
-        
-        .source-link {
-          color: var(--accent);
-          font-weight: 500;
+        .header p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 800px;
         }
 
-        /* Content */
-        .post-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 4rem;
+        /* Talks Grid */
+        .talks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .post-content h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
+        .talk-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .talk-thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .talk-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .talk-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
             color: var(--text-primary);
         }
 
-        .post-content h3 {
-            font-size: 1.4rem;
-            margin-top: 2rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-primary);
+        .talk-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
         }
 
-        .post-content p {
-            margin-bottom: 1.5rem;
+        .talk-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .post-content a {
+        .talk-date, .talk-event {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .talk-meta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .talk-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .talk-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-primary);
             color: var(--accent);
             text-decoration: none;
-        }
-
-        .post-content a:hover {
-            text-decoration: underline;
-        }
-
-        .post-content pre {
-            background: var(--bg-secondary);
-            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
             border-radius: 8px;
-            overflow-x: auto;
-            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            transition: background 0.2s ease, color 0.2s ease;
         }
 
-        .post-content code {
-            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-            font-size: 0.9em;
+        .talk-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .talk-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .filter-option {
+            padding: 0.5rem 1rem;
             background: var(--bg-secondary);
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
         }
 
-        .post-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 2rem 0;
+        .filter-option.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
         }
 
-        /* Comments section */
-        .comments {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+        .filter-option:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
         }
 
         /* Footer */
@@ -249,29 +302,19 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
-                padding: 1rem 0.75rem;
+                padding: 1.25rem;
             }
 
             .nav {
                 flex-direction: row;
-                justify-content: space-between;
                 align-items: center;
                 margin-bottom: 1.5rem;
             }
 
             .nav-links {
                 flex-wrap: wrap;
-                gap: 1.25rem;
-                padding: 0 0.5rem;
-                justify-content: flex-start;
-            }
-
-            .back-link {
-                margin-right: auto;
-            }
-
-            .nav svg {
-                display: none;
+                gap: 1rem;
+                justify-content: flex-end;
             }
 
             .nav a {
@@ -279,13 +322,16 @@
                 gap: 0;
             }
 
+            .nav svg {
+                display: none;
+            }
+
             .header {
                 margin-bottom: 2rem;
-                padding: 0.5rem 0;
             }
 
             .header h1 {
-                font-size: 1.75rem;
+                font-size: 2rem;
                 margin-bottom: 0.75rem;
             }
 
@@ -293,18 +339,9 @@
                 font-size: 1rem;
             }
 
-            .footer {
-                margin-top: 2rem;
-                padding: 1.5rem 0;
-            }
-            .post-meta {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .meta-right {
-                justify-content: flex-start;
-                gap: 0.75rem;
+            .talks-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -326,9 +363,6 @@
                     </svg>
                     LinkedIn
                 </a>
-                <a href="/talks">
-                    Talks
-                </a>
                 <a href="/jackpearce">
                     About
                 </a>
@@ -340,40 +374,22 @@
         </nav>
 
         <header class="header">
-            <h1>{{title}}</h1>
-            <div class="post-meta">
-                {{category}}
-                <div class="meta-right">
-                    <span class="date">{{date}}</span>
-                    <span class="reading-time">{{readTime}} min read</span>
-                    <a href="https://github.com/jkpe/www.jackpearce.co.uk/tree/main/posts/{{slug}}.md" target="_blank" rel="noopener noreferrer" class="source-link">
-                        View source
-                    </a>
-                </div>
-            </div>
+            <h1>Talks & Presentations</h1>
+            <p>A collection of talks, presentations, and workshops I've given on cloud architecture, Kubernetes, and other technical topics.</p>
         </header>
-        
-        <main class="post-content">
-            {{content}}
-        </main>
-        
-        <section class="comments">
-            <script src="https://giscus.app/client.js"
-                data-repo="jkpe/www.jackpearce.co.uk-comments"
-                data-repo-id="R_kgDOLfwvdA"
-                data-category="Announcements"
-                data-category-id="DIC_kwDOLfwvdM4Cd8Ni"
-                data-mapping="title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="preferred_color_scheme"
-                data-lang="en"
-                crossorigin="anonymous"
-                async>
-            </script>
+
+        <section class="filter-section">
+            <div class="filter-options">
+                <button class="filter-option active" data-filter="all">All Talks</button>
+                {{filters}}
+            </div>
         </section>
+
+        <main>
+            <div class="talks-grid" id="talks-grid">
+                {{talks}}
+            </div>
+        </main>
 
         <footer class="footer">
             This site uses a custom static site generator, the source code for the site can be found at 
@@ -399,16 +415,28 @@
             themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
         });
 
-            // Update giscus theme
-            const giscusFrame = document.querySelector('iframe.giscus-frame');
-            if (giscusFrame) {
-                const theme = html.className === 'dark' ? 'dark' : 'light';
-                giscusFrame.contentWindow.postMessage(
-                    { giscus: { setConfig: { theme: theme } } },
-                    'https://giscus.app'
-                );
-            }
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-option');
+        const talkCards = document.querySelectorAll('.talk-card');
 
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                
+                // Update active state
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter talks
+                talkCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.topic === filter) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
