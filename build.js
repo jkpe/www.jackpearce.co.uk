@@ -3,7 +3,6 @@ const fs = require('fs').promises;
 const path = require('path');
 const { marked } = require('marked');
 const matter = require('gray-matter');
-const { minify } = require('html-minifier');
 const generateRSS = require('./rss'); // Import the RSS generator
 
 // Site metadata for RSS
@@ -114,19 +113,9 @@ async function processPost(filePath) {
     // Generate the complete HTML for the post
     const postHtml = await generatePost({ ...metadata, readTime }, htmlContent);
     
-    // Minify the HTML
-    const minifiedHtml = minify(postHtml, {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-    });
-
-    // Write the post file
+    // Write the post file without minification
     const outputPath = path.join(__dirname, 'dist', 'posts', `${metadata.slug}.html`);
-    await fs.writeFile(outputPath, minifiedHtml);
+    await fs.writeFile(outputPath, postHtml);
 
     return {
         ...metadata,
@@ -241,19 +230,9 @@ async function generateTalksPage(talks) {
         result = result.replace('{{filters}}', filtersHtml);
         result = result.replace('{{talks}}', talksHtml);
         
-        // Minify the HTML
-        const minifiedHtml = minify(result, {
-            collapseWhitespace: true,
-            removeComments: true,
-            removeRedundantAttributes: true,
-            removeScriptTypeAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            useShortDoctype: true
-        });
-        
-        // Write the talks page
+        // Write the talks page without minification
         const outputPath = path.join(__dirname, 'dist', 'talks.html');
-        await fs.writeFile(outputPath, minifiedHtml);
+        await fs.writeFile(outputPath, result);
         
         console.log('Talks page generated successfully!');
         
@@ -381,13 +360,9 @@ async function build() {
             markdownFiles.map(file => processPost(path.join(postsDir, file)))
         );
 
-        // Generate index page
+        // Generate index page without minification
         const indexHtml = await generateIndex(posts);
-        const minifiedIndexHtml = minify(indexHtml, {
-            collapseWhitespace: true,
-            removeComments: true
-        });
-        await fs.writeFile('dist/index.html', minifiedIndexHtml);
+        await fs.writeFile('dist/index.html', indexHtml);
 
         // Generate RSS feed using the imported function
         const rssFeed = generateRSS(posts, siteMetadata);
