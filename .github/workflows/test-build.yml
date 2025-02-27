@@ -1,0 +1,93 @@
+name: Test Build
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Verify build artifacts
+        run: |
+          # Check if dist directory exists
+          if [ ! -d "dist" ]; then
+            echo "Error: dist directory was not created"
+            exit 1
+          fi
+
+          # Check if main HTML files were created
+          for file in index.html talks.html; do
+            if [ ! -f "dist/$file" ]; then
+              echo "Error: dist/$file not found"
+              exit 1
+            fi
+          done
+
+          # Check if posts directory was created and has content
+          if [ ! -d "dist/posts" ] || [ -z "$(ls -A dist/posts)" ]; then
+            echo "Error: dist/posts directory is missing or empty"
+            exit 1
+          fi
+
+          # Check if RSS feed was created
+          if [ ! -f "dist/rss.xml" ]; then
+            echo "Error: RSS feed not generated"
+            exit 1
+          fi
+
+          # Verify that at least one post was built
+          POST_COUNT=$(find dist/posts -name "*.html" | wc -l)
+          if [ "$POST_COUNT" -lt 1 ]; then
+            echo "Error: No posts were built"
+            exit 1
+          fi
+
+          echo "✅ Build verification completed successfully"
+
+      - name: Start server for basic testing
+        run: |
+          # Start the server in the background
+          node server.js &
+          SERVER_PID=$!
+          
+          # Give the server a moment to start
+          sleep 2
+          
+          # Test if the server is responding
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "Error: Server is not responding with status 200"
+            kill $SERVER_PID
+            exit 1
+          fi
+          
+          # Check if the server correctly handles .html redirection
+          REDIRECT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -L http://localhost:3000/index.html)
+          if [ "$REDIRECT_STATUS" != "200" ]; then
+            echo "Error: HTML redirection not working properly"
+            kill $SERVER_PID
+            exit 1
+          fi
+          
+          # Clean up: stop the server
+          kill $SERVER_PID
+          
+          echo "✅ Server tests completed successfully"
