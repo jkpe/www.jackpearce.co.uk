@@ -19,12 +19,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
 
     <script>
         // Immediately set the theme before the page renders
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.className = savedTheme;
+            
+            // Set the appropriate highlight.js theme based on dark mode
+            const style = document.createElement('style');
+            if (savedTheme === 'dark') {
+                style.textContent = `
+                    .hljs {
+                        display: block;
+                        overflow-x: auto;
+                        padding: 1em;
+                        color: #c9d1d9;
+                        background: #0d1117;
+                    }
+                `;
+            } else {
+                style.textContent = `
+                    .hljs {
+                        display: block;
+                        overflow-x: auto;
+                        padding: 1em;
+                        color: #24292e;
+                        background: #ffffff;
+                    }
+                `;
+            }
+            document.head.appendChild(style);
         })();
     </script>
     
@@ -193,10 +222,11 @@
 
         .post-content pre {
             background: var(--bg-secondary);
-            padding: 1rem;
+            padding: 1.25rem;
             border-radius: 8px;
             overflow-x: auto;
             margin: 1.5rem 0;
+            border: 1px solid var(--border);
         }
 
         .post-content code {
@@ -205,6 +235,45 @@
             background: var(--bg-secondary);
             padding: 0.2em 0.4em;
             border-radius: 4px;
+            color: var(--text-primary);
+        }
+
+        /* Code block specific styles */
+        .post-content pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: inherit;
+        }
+
+        /* Syntax highlighting customizations */
+        .hljs {
+            background: var(--bg-secondary) !important;
+            border-radius: 6px;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+        }
+
+        html.dark .hljs {
+            background: var(--bg-secondary) !important;
+        }
+
+        .post-content pre::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .post-content pre::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+
+        .post-content pre::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        .post-content pre::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
         }
 
         .post-content img {
@@ -397,18 +466,48 @@
             const isDark = html.classList.toggle('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-        });
+
+            // Update code highlighting theme
+            const style = document.createElement('style');
+            if (isDark) {
+                style.textContent = `
+                    .hljs {
+                        display: block;
+                        overflow-x: auto;
+                        padding: 1em;
+                        color: #c9d1d9;
+                        background: #0d1117;
+                    }
+                `;
+            } else {
+                style.textContent = `
+                    .hljs {
+                        display: block;
+                        overflow-x: auto;
+                        padding: 1em;
+                        color: #24292e;
+                        background: #ffffff;
+                    }
+                `;
+            }
+            // Remove any existing hljs style
+            const existingStyle = document.querySelector('style[data-hljs]');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            style.setAttribute('data-hljs', '');
+            document.head.appendChild(style);
 
             // Update giscus theme
             const giscusFrame = document.querySelector('iframe.giscus-frame');
             if (giscusFrame) {
-                const theme = html.className === 'dark' ? 'dark' : 'light';
+                const theme = isDark ? 'dark' : 'light';
                 giscusFrame.contentWindow.postMessage(
                     { giscus: { setConfig: { theme: theme } } },
                     'https://giscus.app'
                 );
             }
-
+        });
     </script>
 </body>
 </html>
