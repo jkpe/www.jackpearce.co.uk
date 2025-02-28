@@ -47,6 +47,24 @@
     "videoUrl": "https://www.youtube.com/watch?v=q1MQQtx2Vw8"
   },
   {
+    "title": "Configuring Advanced Load Balancer Settings in Kubernetes (DOKS)",
+    "description": "This tutorial covers renaming your load balancer, applying firewall rules, and providing a deep dive into the annotations needed for these configurations. The video includes practical examples and references to DigitalOcean’s documentation and GitHub repository for additional resources.",
+    "date": "2024-07-24",
+    "event": "YouTube",
+    "topic": "Kubernetes",
+    "thumbnail": "/images/talks/S-UBqhdya4g.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=S-UBqhdya4g"
+  },
+  {
+    "title": "Integrating DOCR With Kubernetes (DOKS)",
+    "description": "Enable DOCR integration 1-click using UI and demonstrate pulling an image from DOCR using DOKS.",
+    "date": "2024-07-17",
+    "event": "YouTube",
+    "topic": "Kubernetes",
+    "thumbnail": "/images/talks/Gg4YckgBmjg.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=Gg4YckgBmjg"
+  },
+  {
     "title": "Kubernetes Deployment with Zeet & DigitalOcean: Simplifying Application Hosting and Scaling",
     "description": "Discover how Zeet and DigitalOcean help developers build, deploy, and scale applications easily. Johnny Dallas, CEO and Founder of Zeet, and Jack Pearce, Solutions Architect at DigitalOcean, discuss and demo how Zeet's cutting-edge platform seamlessly integrates with DigitalOcean's Managed Kubernetes (DOKS), offering developers simplicity and efficiency in deploying containerized applications.",
     "date": "2024-05-16",
