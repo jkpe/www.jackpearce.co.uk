@@ -28,7 +28,7 @@
     "videoUrl": "https://www.youtube.com/watch?v=RmDvWK81z7Q"
   },
   {
-    "title": "Running Meta Llama on DigitalOcean Kubernetes (DOKS) with NVIDIA NIM",
+    "title": "Running Meta Llama on Kubernetes with NVIDIA NIM",
     "description": "Discover how to run NVIDIA NIMS on DigitalOcean Kubernetes in this step-by-step demo with Jack Pearce, Senior Solutions Architect at DigitalOcean. We'll show you how to deploy a large language model, Meta Llama 3.1 on an Nvidia H100 GPU with DigitalOcean Kubernetes.",
     "date": "2024-10-07",
     "event": "YouTube",
@@ -47,7 +47,7 @@
     "videoUrl": "https://www.youtube.com/watch?v=q1MQQtx2Vw8"
   },
   {
-    "title": "Configuring Advanced Load Balancer Settings in Kubernetes (DOKS)",
+    "title": "Configuring Advanced Load Balancer Settings in Kubernetes",
     "description": "This tutorial covers renaming your load balancer, applying firewall rules, and providing a deep dive into the annotations needed for these configurations. The video includes practical examples and references to DigitalOcean’s documentation and GitHub repository for additional resources.",
     "date": "2024-07-24",
     "event": "YouTube",
@@ -56,7 +56,7 @@
     "videoUrl": "https://www.youtube.com/watch?v=S-UBqhdya4g"
   },
   {
-    "title": "Integrating DOCR With Kubernetes (DOKS)",
+    "title": "Integrating DOCR With Kubernetes",
     "description": "Enable DOCR integration 1-click using UI and demonstrate pulling an image from DOCR using DOKS.",
     "date": "2024-07-17",
     "event": "YouTube",
