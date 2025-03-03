@@ -71,6 +71,31 @@ async function generatePost(metadata, htmlContent) {
         // Generate canonical URL - add trailing slash
         const canonicalUrl = `${siteMetadata.siteUrl}/posts/${metadata.slug}/`;
 
+        // Determine if we should show giscus comments based on post date
+        const postDate = new Date(metadata.date);
+        const cutoffDate = new Date('2015-01-01');
+        const showGiscus = postDate >= cutoffDate;
+
+        // Generate comments section HTML
+        const commentsHtml = showGiscus ? `
+        <section class="comments">
+            <script src="https://giscus.app/client.js"
+                data-repo="jkpe/www.jackpearce.co.uk-comments"
+                data-repo-id="R_kgDOLfwvdA"
+                data-category="Announcements"
+                data-category-id="DIC_kwDOLfwvdM4Cd8Ni"
+                data-mapping="title"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="en"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </section>` : '';
+
         // Replace template variables
         const replacements = {
             '{{title}}': metadata.title,
@@ -80,7 +105,9 @@ async function generatePost(metadata, htmlContent) {
             '{{readTime}}': metadata.readTime,
             '{{content}}': htmlContent,
             '<meta rel="canonical" href="https://www.jackpearce.co.uk">': 
-                `<meta rel="canonical" href="${canonicalUrl}">`
+                `<meta rel="canonical" href="${canonicalUrl}">`,
+            '<section class="comments">': commentsHtml ? commentsHtml : '<!-- giscus comments disabled for older posts -->',
+            '</section>': commentsHtml ? '</section>' : ''
         };
 
         // Replace all occurrences of each template variable
