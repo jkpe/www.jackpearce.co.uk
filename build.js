@@ -394,6 +394,7 @@ async function build() {
         // Generate RSS feed using the imported function
         const rssFeed = generateRSS(posts, siteMetadata);
         await fs.writeFile('dist/rss.xml', rssFeed);
+        await fs.writeFile('dist/index.xml', rssFeed);
         
         // Generate talks page
         try {
