@@ -22,7 +22,7 @@ Ghost is free and open-source. There are 2 primary ways to deploy Ghost.
 
 [DigitalOcean App Platform](https://docs.digitalocean.com/products/app-platform/) is a Platform-as-a-Service (PaaS) offering that allows developers to publish code directly to DigitalOcean servers without worrying about the underlying infrastructure.
 
-[![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/10/8f0a1711-7470-4606-8796-b379a9e41b5f_separation-of-responsibilities.png)](https://www.digitalocean.com/trust/faq)Seperation of Responsibilities
+[![](https://static.jackpearce.co.uk/images/posts/2023/10/8f0a1711-7470-4606-8796-b379a9e41b5f_separation-of-responsibilities.png)](https://www.digitalocean.com/trust/faq)Seperation of Responsibilities
 
 ## A few notes of interest before we start:
 

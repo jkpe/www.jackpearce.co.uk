@@ -30,12 +30,12 @@ Here is an example that will output **compose.yaml** for all running Docker cont
 
 **docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/red5d/docker-autocompose $(docker ps -aq)**
 
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/dockercompose.png)docker-compose.yml in GitHub
+![](https://static.jackpearce.co.uk/images/posts/2023/11/dockercompose.png)docker-compose.yml in GitHub
 **Step 2.
 [Install Renovate](https://github.com/marketplace/renovate)** to your GitHub Repo. In my `compose.yaml` above as an example, Renovate will detect the docker image `cloudflare/cloudflared:2023.10.0` as a dependancy.
 
 Install the Renovate app and select the repos you would like. For each selected repo, an Onboarding PR will be created. Merge the onboarding PR and from now on Renovate will create new PRs whenever a new image is published to Docker Hub.
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/cd2f4b90-da7b-4025-94e0-7162b34cb354.webp)
+![](https://static.jackpearce.co.uk/images/posts/2023/11/cd2f4b90-da7b-4025-94e0-7162b34cb354.webp)
 **Step 3.**
 Next we'll setup a GitHub action workflow that uses Tailscale SSH to connect to our Docker Host, pushes the updated `compose.yaml` (after merging a PR from Renovate) and updates the running service using `docker-compose up -d`
 
@@ -106,4 +106,4 @@ Here is an example of `renovate.json` that will look for the version string and 
 `renovate.json`
 
 And now we'll get Pull requests with full release notes inline for us to review and then merge, perfect! 🎉
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/pullrequest.png)
+![](https://static.jackpearce.co.uk/images/posts/2023/11/pullrequest.png)

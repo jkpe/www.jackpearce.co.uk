@@ -125,7 +125,7 @@ Note that these are just examples and the dates will be different for every scra
     
 
 **scrape.py**
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/Screenshot-2023-11-09-at-14.11.31.png)**Scraping away...**
+![](https://static.jackpearce.co.uk/images/posts/2023/11/Screenshot-2023-11-09-at-14.11.31.png)**Scraping away...**
 **Great!** Our Python script worked first time and it is now scraping DigitalOcean's documentation into a CSV.
 
 Ok, so lets create an OpenAI Assistant, this part was really quite easy
@@ -137,21 +137,21 @@ Ok, so lets create an OpenAI Assistant, this part was really quite easy
 5. Enable the Retrieval tool and upload our csv
 
 For some reason it did not like our data in csv format despite it being a [supported format](https://platform.openai.com/docs/assistants/tools/supported-files) for Retrieval, instead it appeared to want JSON Lines. No worries! I'll just ask ChatGPT to convert our CSV into JSON Lines format.
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/Screenshot-2023-11-09-at-14.49.38.png)**I am shaking my head in amazement at each step**
+![](https://static.jackpearce.co.uk/images/posts/2023/11/Screenshot-2023-11-09-at-14.49.38.png)**I am shaking my head in amazement at each step**
 ### **Awesome!** Now our Assistant is ready to take questions (yes, that fast)
 
 I'm going to ask it a simple question but I'm not going to give it much context, lets see how it does in comparison to ChatGPT...
 
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/Screenshot-2023-11-09-at-14.57.05-1.png)
+![](https://static.jackpearce.co.uk/images/posts/2023/11/Screenshot-2023-11-09-at-14.57.05-1.png)
 
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/Screenshot-2023-11-09-at-14.58.33.png)
+![](https://static.jackpearce.co.uk/images/posts/2023/11/Screenshot-2023-11-09-at-14.58.33.png)
 
 **Assistant on the left, GPT-4 on the right**
 
 Great! **On the left** our Assistant gives a really detailed accurate answer and didn't ask for additional context
 
 **On the right** GPT-4 who gives a really generic answer (as expected). When I tell ChatGPT I am referring to DigitalOcean App Platform it comes back with another generic answer that yes there is a free tier but it isn't sure on the details of that.
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/11/Screenshot-2023-11-09-at-15.04.18.png)
+![](https://static.jackpearce.co.uk/images/posts/2023/11/Screenshot-2023-11-09-at-15.04.18.png)
 I wanted to check our prompt was clear and our assistant was following the rules. In the prompt I don't tell it not to answer questions about other clouds just that it should stay on topic and not discuss opinions.
 
 ### Stay tuned for part two where we piece this together by interfacing with our Assistant through a custom frontend.
