@@ -8,7 +8,7 @@ category: "Home Automation, Language Models"
 
 As a Home Assistant enthusiast, I'm always looking for ways to improve my smart home setup. Recently, I developed a GitHub Actions workflow that automatically tracks changes to my Home Assistant automations, uses AI to generate commit messages, and creates GitHub releases for each update. This post details how I automated the automation of my automation history. (Try saying that five times fast!)
 
-![Automated GitHub Release](https://images.jackpearce.co.uk/llm-git-commit-home-assistant.png)
+![Automated GitHub Release](https://static.jackpearce.co.uk/images/posts/llm-git-commit-home-assistant.png)
 
 ## Workflow at a Glance
 
@@ -129,7 +129,7 @@ Finally, the workflow creates a new release with incremented version numbers:
 
 This step increments the version number, creates a new tag, and generates release notes that include all commit messages since the last release.
 
-![Automated GitHub Release](https://images.jackpearce.co.uk/llm-git-commit-home-assistant.png)
+![Automated GitHub Release](https://static.jackpearce.co.uk/images/posts/llm-git-commit-home-assistant.png)
 
 ## Why This Matters for My Home Assistant Setup
 

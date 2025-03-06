@@ -5,7 +5,7 @@
     "date": "2025-02-22",
     "event": "Linkedin",
     "topic": "Generative AI Agents",
-    "thumbnail": "/images/talks/media_stream-0255b731096c4f36b8353b7d32507752.jpeg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/media_stream-0255b731096c4f36b8353b7d32507752.jpeg",
     "videoUrl": "https://www.linkedin.com/posts/activity-7298741631011205122-J-eS?utm_source=share&utm_medium=member_desktop&rcm=ACoAADuXEw0BK3JZ4-uDNnWn5DbRshQNKgDEjXg",
     "codeUrl": "https://github.com/DO-Solutions/do-api-functions"
   },
@@ -15,7 +15,7 @@
     "date": "2025-02-15",
     "event": "Deploy 2025",
     "topic": "Kubernetes",
-    "thumbnail": "/images/talks/TrCDCIWy7Tc.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/TrCDCIWy7Tc.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=TrCDCIWy7Tc"
   },
   {
@@ -24,7 +24,7 @@
     "date": "2024-08-12",
     "event": "Webinar",
     "topic": "Cloud Hosting",
-    "thumbnail": "/images/talks/RmDvWK81z7Q.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/RmDvWK81z7Q.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=RmDvWK81z7Q"
   },
   {
@@ -33,7 +33,7 @@
     "date": "2024-10-07",
     "event": "YouTube",
     "topic": "Kubernetes",
-    "thumbnail": "/images/talks/csm3e1RswOM.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/csm3e1RswOM.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=csm3e1RswOM",
     "codeUrl": "https://github.com/bikram20/nim-deploy/tree/main/cloud-service-providers/DigitalOcean/DOKS"
   },
@@ -43,7 +43,7 @@
     "date": "2024-04-23",
     "event": "Webinar",
     "topic": "Kubernetes",
-    "thumbnail": "/images/talks/q1MQQtx2Vw8.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/q1MQQtx2Vw8.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=q1MQQtx2Vw8"
   },
   {
@@ -52,7 +52,7 @@
     "date": "2024-07-24",
     "event": "YouTube",
     "topic": "Kubernetes",
-    "thumbnail": "/images/talks/S-UBqhdya4g.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/S-UBqhdya4g.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=S-UBqhdya4g"
   },
   {
@@ -61,7 +61,7 @@
     "date": "2024-07-17",
     "event": "YouTube",
     "topic": "Kubernetes",
-    "thumbnail": "/images/talks/Gg4YckgBmjg.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/Gg4YckgBmjg.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=Gg4YckgBmjg"
   },
   {
@@ -70,7 +70,7 @@
     "date": "2024-05-16",
     "event": "Webinar",
     "topic": "Kubernetes",
-    "thumbnail": "/images/talks/myyG-Qlcm5s.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/myyG-Qlcm5s.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=myyG-Qlcm5s"
   },
   {
@@ -79,7 +79,7 @@
     "date": "2024-07-17",
     "event": "Webinar",
     "topic": "Kubernetes Security",
-    "thumbnail": "/images/talks/9SK-TSzsges.jpg",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/9SK-TSzsges.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=9SK-TSzsges"
   }
 ]

@@ -93,4 +93,4 @@ Now flash the IT mode firmware: The command will put the card into advanced mode
 The output should tell you everything was succesful. Verify the install has been completed correctly before rebooting with `sas2flash.efi -listall` If you enter the HBA cards BIOS again by pressing CTRL-C during boot, you’ll see confirmation you are now running in IT mode with v20 firmware. You can now use the card with your Microserver as a HBA.
 
 These LSI HBAs run very hot (people on [Reddit](https://www.reddit.com/r/DataHoarder/comments/8u7syj/how_i_cooled_my_lsi_sas92118i_card_with_a_noctua/) reporting 85c+) and the MicroServer is a tight space with limited airflow so I purchased a [40x20mm fan](https://www.amazon.co.uk/gp/product/B07125KWG1/) and cable tied it to the heatsink.
-![](https://www-jackpearce-co-uk.ams3.cdn.digitaloceanspaces.com/2023/10/lsi8i-with-fan.jpeg)LSI 9211-8i with Noctua fan attached
+![](https://static.jackpearce.co.uk/images/posts/2023/10/lsi8i-with-fan.jpeg)LSI 9211-8i with Noctua fan attached
