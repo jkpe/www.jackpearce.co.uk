@@ -13,13 +13,26 @@ const siteMetadata = {
 };
 
 // Configure marked for syntax highlighting
-const highlight = require('highlight.js');
+const Prism = require('prismjs');
+require('prismjs/components/prism-javascript');
+require('prismjs/components/prism-typescript');
+require('prismjs/components/prism-jsx');
+require('prismjs/components/prism-tsx');
+require('prismjs/components/prism-yaml');
+require('prismjs/components/prism-json');
+require('prismjs/components/prism-bash');
+require('prismjs/components/prism-python');
+require('prismjs/components/prism-go');
+require('prismjs/components/prism-rust');
+require('prismjs/components/prism-css');
+require('prismjs/components/prism-markdown');
+
 marked.setOptions({
     highlight: (code, lang) => {
-        if (lang && highlight.getLanguage(lang)) {
-            return highlight.highlight(code, { language: lang }).value;
+        if (lang && Prism.languages[lang]) {
+            return Prism.highlight(code, Prism.languages[lang], lang);
         }
-        return highlight.highlightAuto(code).value;
+        return code;
     },
     gfm: true
 });
