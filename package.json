@@ -2,7 +2,7 @@
   "dependencies": {
     "express": "^4.21.2",
     "gray-matter": "^4.0.3",
-    "highlight.js": "^11.8.0",
+    "prismjs": "^1.29.0",
     "marked": "^15.0.0"
   },
   "scripts": {
