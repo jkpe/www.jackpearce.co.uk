@@ -195,18 +195,6 @@
             flex-grow: 1;
         }
 
-        .project-topic {
-            display: inline-block;
-            padding: 0.35rem 0.75rem;
-            background: var(--bg-primary);
-            color: var(--accent);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 1.25rem;
-        }
-
         .project-links {
             display: flex;
             gap: 1rem;
@@ -236,40 +224,6 @@
         .project-link svg {
             width: 18px;
             height: 18px;
-        }
-
-        /* Filter Section */
-        .filter-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .filter-option {
-            padding: 0.5rem 1rem;
-            background: var(--bg-secondary);
-            border-radius: 100px;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            cursor: pointer;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
-        }
-
-        .filter-option.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-
-        .filter-option:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
         }
 
         /* Footer */
@@ -379,13 +333,6 @@
             <p>A collection of useful tools and projects I've developed, primarily focused on cloud infrastructure, developer utilities, and technical solutions.</p>
         </header>
 
-        <section class="filter-section">
-            <div class="filter-options">
-                <button class="filter-option active" data-filter="all">All Projects</button>
-                {{filters}}
-            </div>
-        </section>
-
         <main>
             <div class="projects-grid" id="projects-grid">
                 {{projects}}
@@ -414,29 +361,6 @@
             const isDark = html.classList.toggle('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-        });
-
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-option');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-                
-                // Update active state
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                // Filter projects
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.topic === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
         });
     </script>
 </body>
