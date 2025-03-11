@@ -355,14 +355,6 @@ async function generateProjectsPage(projects) {
         const templatePath = path.join(__dirname, 'templates', 'projects.html');
         const template = await fs.readFile(templatePath, 'utf-8');
         
-        // Get unique topics for filters
-        const topics = [...new Set(projects.map(project => project.topic))].filter(Boolean);
-        
-        // Generate filter buttons HTML
-        const filtersHtml = topics.map(topic => 
-            `<button class="filter-option" data-filter="${topic}">${topic}</button>`
-        ).join('\n');
-        
         // Generate projects HTML
         const projectsHtml = projects.map(project => {
             // Default thumbnail if not provided
@@ -395,11 +387,10 @@ async function generateProjectsPage(projects) {
             }
             
             return `
-                <article class="project-card" data-topic="${project.topic || ''}">
+                <article class="project-card">
                     <img src="${thumbnail}" alt="${project.title}" class="project-thumbnail">
                     <div class="project-content">
                         <h2 class="project-title">${project.title}</h2>
-                        <span class="project-topic">${project.topic || ''}</span>
                         <p class="project-description">${project.description || ''}</p>
                         <div class="project-links">
                             ${linksHtml.join('\n')}
@@ -411,7 +402,6 @@ async function generateProjectsPage(projects) {
         
         // Replace template variables
         let result = template;
-        result = result.replace('{{filters}}', filtersHtml);
         result = result.replace('{{projects}}', projectsHtml);
         
         // Write the projects page without minification
