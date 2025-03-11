@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Configure Advanced Settings for DigitalOcean Managed Databases",
+    "description": "Use this tool to customize your DigitalOcean managed database configuration and generate the corresponding API request.",
+    "url": "https://do-db-config-ui-zgu8q.ondigitalocean.app/",
+    "github": "https://github.com/jkpe/do-db-config-ui",
+    "topic": "Cloud Tools",
+    "thumbnail": "https://static.jackpearce.co.uk/images/projects/do-db-config-ui.png"
+  },
+  {
+    "title": "DigitalOcean Firewall Manager",
+    "description": "Generate the API command to create and delete advanced firewall rules, including deny rules.",
+    "url": "https://api-ui-firewall-7ki46.ondigitalocean.app/",
+    "topic": "Security",
+    "thumbnail": "https://static.jackpearce.co.uk/images/projects/firewall-manager.png"
+  },
+  {
+    "title": "DigitalOcean GenAI Platform Pricing Calculator",
+    "description": "Calculate your estimated costs for building GPU-powered AI agents with fully-managed deployment.",
+    "url": "https://hammerhead-app-vxjd6.ondigitalocean.app/",
+    "topic": "AI/ML",
+    "thumbnail": "https://static.jackpearce.co.uk/images/projects/genai-calculator.png"
+  },
+  {
+    "title": "DigitalOcean Spaces Presigned URL Helper",
+    "description": "This tool generates pre-signed URLs for secure, temporary access to objects in your DigitalOcean Spaces Bucket. Pre-signed URLs are useful for allowing time-limited uploads and downloads without requiring users to have DigitalOcean credentials.",
+    "url": "https://do-spaces-presigned-helper-lfzz7.ondigitalocean.app/",
+    "topic": "Storage",
+    "thumbnail": "https://static.jackpearce.co.uk/images/projects/spaces-presigned.png"
+  }
+] 
