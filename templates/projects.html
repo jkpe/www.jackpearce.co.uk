@@ -38,6 +38,7 @@
             --border: #e5e7eb;
             --card-shadow: rgba(0, 0, 0, 0.03);
             --card-hover-shadow: rgba(0, 0, 0, 0.03);
+            --row-hover: #f3f4f6;
         }
 
         html.dark {
@@ -49,6 +50,7 @@
             --border: #404040;
             --card-shadow: rgba(0, 0, 0, 0.15);
             --card-hover-shadow: rgba(0, 0, 0, 0.15);
+            --row-hover: #333333;
         }
 
         /* Reset and base styles */
@@ -143,75 +145,72 @@
             max-width: 800px;
         }
 
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .project-card {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .project-thumbnail {
+        /* Projects List Style */
+        .projects-table {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border);
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 3rem;
+            overflow: hidden;
         }
 
-        .project-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
+        .projects-table th {
+            text-align: left;
+            padding: 1rem;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .projects-table td {
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .projects-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .projects-table tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .projects-table tr:hover {
+            background-color: var(--row-hover);
+        }
+
+        .project-title-cell {
+            font-weight: 600;
+            font-size: 1.1rem;
             color: var(--text-primary);
         }
 
-        .project-description {
+        .project-description-cell {
             color: var(--text-secondary);
             font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-            flex-grow: 1;
+            max-width: 500px;
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
+        .project-links-cell {
+            white-space: nowrap;
         }
 
         .project-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.6rem 1rem;
-            background: var(--bg-primary);
+            padding: 0.5rem 0.75rem;
+            margin-right: 0.5rem;
+            background: var(--bg-secondary);
             color: var(--accent);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid var(--border);
             transition: background 0.2s ease, color 0.2s ease;
         }
@@ -222,8 +221,64 @@
         }
 
         .project-link svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            .projects-table {
+                display: block;
+            }
+            
+            .projects-table thead {
+                display: none;
+            }
+            
+            .projects-table tbody, 
+            .projects-table tr {
+                display: block;
+            }
+            
+            .projects-table tr {
+                margin-bottom: 1.5rem;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                overflow: hidden;
+                background-color: var(--bg-secondary);
+            }
+            
+            .projects-table td {
+                display: block;
+                text-align: left;
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .projects-table td:last-child {
+                border-bottom: none;
+            }
+            
+            .projects-table td:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                margin-right: 1rem;
+                color: var(--text-secondary);
+            }
+            
+            .project-links-cell {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .project-link {
+                margin-right: 0;
+                margin-top: 0.5rem;
+            }
         }
 
         /* Footer */
@@ -290,11 +345,6 @@
             .header p {
                 font-size: 1rem;
             }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -334,9 +384,18 @@
         </header>
 
         <main>
-            <div class="projects-grid" id="projects-grid">
-                {{projects}}
-            </div>
+            <table class="projects-table">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Description</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody id="projects-tbody">
+                    {{projects}}
+                </tbody>
+            </table>
         </main>
 
         <footer class="footer">
@@ -364,4 +423,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
