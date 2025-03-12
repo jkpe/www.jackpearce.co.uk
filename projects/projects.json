@@ -1,12 +1,12 @@
 [
   {
     "title": "DigitalOcean Spaces Presigned URL Helper",
-    "description": "This tool generates pre-signed URLs for secure, temporary access to objects in your DigitalOcean Spaces Bucket. Pre-signed URLs are useful for allowing time-limited uploads and downloads without requiring users to have DigitalOcean credentials.",
+    "description": "Generates pre-signed URLs for secure, temporary access to objects in your DigitalOcean Spaces Bucket.",
     "url": "https://do-spaces-presigned-helper-lfzz7.ondigitalocean.app/"
   },
   {
     "title": "Configure Advanced Settings for DigitalOcean Managed Databases",
-    "description": "Use this tool to customize your DigitalOcean managed database configuration and generate the corresponding API request.",
+    "description": "Customize your DigitalOcean managed database configuration and generate the corresponding API request.",
     "url": "https://do-db-config-ui-zgu8q.ondigitalocean.app/",
     "github": "https://github.com/jkpe/do-db-config-ui"
   },
@@ -22,7 +22,7 @@
   },
   {
     "title": "Controlling Eight Sleep with an ATOMS3 Dev Kit",
-    "description": "I had the idea to use the ATOMS3 Dev Kit to create a small, dedicated button for temperature control. This tiny ESP32 device features an integrated display and button, making it perfect for the task.",
+    "description": "Use the ATOMS3 Dev Kit to create a small, dedicated button for temperature control. This tiny ESP32 device features an integrated display and button, making it perfect for the task.",
     "url": "https://www.jackpearce.co.uk/posts/eight-sleep-atoms3-control/",
     "github": "https://github.com/jkpe/eight-sleep-m5stack-atoms3"
   }
