@@ -1,22 +1,22 @@
 [
   {
-    "title": "DigitalOcean Spaces Presigned URL Helper",
+    "title": "DigitalOcean: Spaces Presigned URL Helper",
     "description": "Generates pre-signed URLs for secure, temporary access to objects in your DigitalOcean Spaces Bucket.",
     "url": "https://do-spaces-presigned-helper-lfzz7.ondigitalocean.app/"
   },
   {
-    "title": "Configure Advanced Settings for DigitalOcean Managed Databases",
+    "title": "DigitalOcean: Configure Advanced Settings for Managed Databases",
     "description": "Customize your DigitalOcean managed database configuration and generate the corresponding API request.",
     "url": "https://do-db-config-ui-zgu8q.ondigitalocean.app/",
     "github": "https://github.com/jkpe/do-db-config-ui"
   },
   {
-    "title": "DigitalOcean GenAI Platform Pricing Calculator",
+    "title": "DigitalOcean: GenAI Platform Pricing Calculator",
     "description": "Calculate your estimated costs for building GPU-powered AI agents with fully-managed deployment.",
     "url": "https://hammerhead-app-vxjd6.ondigitalocean.app/"
   },
   {
-    "title": "DigitalOcean Firewall Manager",
+    "title": "DigitalOcean: Firewall Manager",
     "description": "Generate the API command to create and delete advanced firewall rules, including deny rules.",
     "url": "https://api-ui-firewall-7ki46.ondigitalocean.app/"
   },
