@@ -383,9 +383,15 @@ async function generateProjectsPage(projects) {
                 `);
             }
             
+            // Format the title to color DigitalOcean part if present
+            let formattedTitle = project.title;
+            if (project.title.startsWith('DigitalOcean:')) {
+                formattedTitle = `<span style="color: #0080FF;">DigitalOcean:</span>${project.title.substring('DigitalOcean:'.length)}`;
+            }
+            
             return `
                 <tr>
-                    <td class="project-title-cell" data-label="Project">${project.title}</td>
+                    <td class="project-title-cell" data-label="Project">${formattedTitle}</td>
                     <td class="project-description-cell" data-label="Description">${project.description || ''}</td>
                     <td class="project-links-cell" data-label="Links">
                         ${linksHtml.join('\n')}
