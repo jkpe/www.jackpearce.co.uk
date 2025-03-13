@@ -93,10 +93,10 @@ async function generatePost(metadata, htmlContent) {
         const commentsHtml = showGiscus ? `
         <section class="comments">
             <script src="https://giscus.app/client.js"
-                data-repo="jkpe/www.jackpearce.co.uk-comments"
-                data-repo-id="R_kgDOLfwvdA"
-                data-category="Announcements"
-                data-category-id="DIC_kwDOLfwvdM4Cd8Ni"
+                data-repo="jkpe/www.jackpearce.co.uk"
+                data-repo-id="R_kgDONwZpHA"
+                data-category="Comments"
+                data-category-id="DIC_kwDONwZpHM4Cn-OX"
                 data-mapping="title"
                 data-strict="0"
                 data-reactions-enabled="1"
