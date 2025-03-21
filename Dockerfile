@@ -3,6 +3,12 @@ FROM node:22.14.0-alpine
 # Create app directory
 WORKDIR /app
 
+# Install PM2 globally for better process management
+RUN npm install pm2 -g
+
+# Create a non-root user and group
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
 # Copy package files first for better caching
 COPY package*.json ./
 
@@ -15,8 +21,14 @@ COPY . .
 # Build the static site
 RUN npm run build
 
+# Set proper permissions
+RUN chown -R appuser:appgroup /app
+
+# Switch to non-root user
+USER appuser
+
 # Expose the port the Express server uses
 EXPOSE 3000
 
-# Command to run the application
-CMD ["node", "server.js"]
+# Use PM2 to run the application in production mode
+CMD ["pm2-runtime", "server.js", "--name", "jackpearce-blog", "--env", "production"]
