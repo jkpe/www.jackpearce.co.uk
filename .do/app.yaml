@@ -254,15 +254,17 @@ ingress:
 name: blog
 region: lon
 services:
-- build_command: node build.js
-  environment_slug: node-js
+- name: blog-service
+  dockerfile_path: /Dockerfile
   github:
     branch: main
     deploy_on_push: false
     repo: jkpe/www.jackpearce.co.uk
   http_port: 3000
-  instance_count: 1
-  instance_size_slug: apps-s-1vcpu-0.5gb
-  name: blog-service
-  run_command: node server.js
+  autoscaling:
+    max_instance_count: 10
+    metrics:
+      cpu:
+        percent: 70
+    min_instance_count: 2
   source_dir: /
