@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Deploy the app
         id: deploy
-        uses: digitalocean/app_action/deploy@v2.0.9
+        uses: jkpe/app_action/deploy@v2.0.9
         with:
           deploy_pr_preview: "true"
           token: ${{ secrets.DO_TOKEN }}
