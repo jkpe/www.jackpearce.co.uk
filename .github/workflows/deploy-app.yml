@@ -10,12 +10,12 @@ permissions:
 
 jobs:
  deploy-app:
-   runs-on: ubuntu-latest
+   runs-on: ubuntu-24.04
    steps:
      - name: Checkout repository
-       uses: actions/checkout@v4
+       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
      - name: Deploy the app
-       uses: digitalocean/app_action/deploy@v2.0.9
+       uses: jkpe/app_action/deploy@2a4780e790ac499079b3ba333c7f433d01f684b7 # v2.0.9
        with:
          token: ${{ secrets.DO_TOKEN }} 
          project_id: a420947b-e41a-48b8-8889-febfa138b556

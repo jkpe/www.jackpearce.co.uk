@@ -11,17 +11,17 @@ permissions:
 jobs:
   preview:
     name: preview
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Deploy the app
         id: deploy
-        uses: digitalocean/app_action/deploy@v2.0.9
+        uses: jkpe/app_action/deploy@2a4780e790ac499079b3ba333c7f433d01f684b7 # v2.0.9
         with:
           deploy_pr_preview: "true"
           token: ${{ secrets.DO_TOKEN }}
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         env:
           BUILD_LOGS: ${{ steps.deploy.outputs.build_logs }}
           DEPLOY_LOGS: ${{ steps.deploy.outputs.deploy_logs }}
@@ -34,7 +34,7 @@ jobs:
               repo: context.repo.repo,
               body: `:rocket: :rocket: :rocket: The app was successfully deployed at ${{ fromJson(steps.deploy.outputs.app).live_url }}.`
             })
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         if: failure()
         with:
           script: |
