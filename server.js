@@ -2,6 +2,15 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+// Set aggressive cache control headers for all assets - 30 days
+const cacheControl = 'public, max-age=2592000';
+
+// Middleware to add cache control headers to all responses
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', cacheControl);
+  next();
+});
+
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
