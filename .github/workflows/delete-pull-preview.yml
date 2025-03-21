@@ -6,10 +6,10 @@ on:
 
 jobs:
   closed:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: delete preview app
-        uses: jkpe/app_action/delete@v2.0.9
+        uses: jkpe/app_action/delete@2a4780e790ac499079b3ba333c7f433d01f684b7 # v2.0.9
         with:
           from_pr_preview: "true"
           ignore_not_found: "true"
