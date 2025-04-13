@@ -40,7 +40,7 @@ run_rc_command "$1"
 6. `nano /etc/rc.conf` and add:
 
 ```text
-cloudflared_enable="YES"```
+cloudflared_enable="YES"
 cloudflared_mode="tunnel --post-quantum --no-autoupdate run --token your_token_here"
 ```
 
