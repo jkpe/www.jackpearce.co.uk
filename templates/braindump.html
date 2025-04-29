@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Dump - jackpearce.co.uk</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Jack Pearce's brain dump - quick notes and snippets on tech, code, and things I learn.">
+    <meta name="keywords" content="brain dump, tech notes, coding snippets, quick tips, learning journal">
+    <meta name="author" content="Jack Pearce">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://www.jackpearce.co.uk/braindump">
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        // Immediately set the theme before the page renders
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.className = savedTheme;
+        })();
+    </script>
+
+    <style>
+        /* Dark mode variables */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --accent: #2563eb;
+            --border: #e5e7eb;
+            --card-shadow: rgba(0, 0, 0, 0.03);
+            --card-hover-shadow: rgba(0, 0, 0, 0.03);
+            --profile-border: rgba(0, 0, 0, 0.08);
+        }
+
+        html.dark {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #60a5fa;
+            --border: #404040;
+            --card-shadow: rgba(0, 0, 0, 0.15);
+            --card-hover-shadow: rgba(0, 0, 0, 0.15);
+            --profile-border: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Geist","Geist Fallback",Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+        
+        .nav a:hover {
+            color: var(--accent);
+        }
+
+        .nav svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Page header */
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        /* Filter categories */
+        .filter-container {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .category-tag {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: none;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .category-tag:hover, .category-tag.active {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* Brain dump cards */
+        .braindump-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .braindump-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px var(--card-shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .braindump-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px var(--card-hover-shadow);
+        }
+
+        .braindump-header {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .braindump-header-main {
+            flex: 1;
+        }
+
+        .braindump-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .braindump-title a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s ease;
+        }
+
+        .braindump-title a:hover {
+            color: var(--accent);
+        }
+
+        .categories-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .category-primary {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .categories-secondary {
+            color: var(--text-secondary);
+            margin-left: 0.25rem;
+        }
+
+        .braindump-meta {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .braindump-card-body {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .braindump-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .braindump-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav a span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="back-link">← Home</a>
+            <div class="nav-links">
+                <a href="https://github.com/jkpe" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/pearcejack" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="/talks">
+                    Talks
+                </a>
+                <a href="/projects">
+                    Projects
+                </a>
+                <a href="/jackpearce">
+                    About
+                </a>
+                <a href="/rss.xml">
+                    RSS
+                </a>
+                <a href="#" id="theme-toggle">Dark Mode</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <h1>Brain Dump</h1>
+            <p>Quick notes, snippets, and thoughts as I learn new things. These are shorter than full blog posts, just things I want to remember or share.</p>
+        </header>
+
+        <div class="filter-container">
+            <button class="category-tag active" data-category="all">All</button>
+            {{categories}}
+        </div>
+
+        <div class="braindump-grid">
+            {{braindumps}}
+        </div>
+
+        <footer class="footer">
+            This site uses a custom static site generator, the source code for the site can be found at 
+            <a href="https://github.com/jkpe/www.jackpearce.co.uk" target="_blank" rel="noopener noreferrer">
+                github.com/jkpe/www.jackpearce.co.uk
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Set initial button text
+        themeToggle.textContent = html.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+        
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        });
+        
+        // Category filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.category-tag');
+            const braindumpCards = document.querySelectorAll('.braindump-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterCategory = this.getAttribute('data-category');
+                    
+                    braindumpCards.forEach(card => {
+                        if (filterCategory === 'all') {
+                            card.style.display = 'flex';
+                        } else {
+                            const cardCategories = card.getAttribute('data-categories').split('|');
+                            if (cardCategories.includes(filterCategory)) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
