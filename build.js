@@ -446,6 +446,22 @@ async function build() {
             console.warn('No styles.css found in static directory');
         });
         
+        // Ensure _headers and _redirects files exist in dist for Cloudflare Workers
+        try {
+            await fs.access('dist/_headers');
+        } catch {
+            console.log('Creating default _headers file for Cloudflare Workers');
+            await fs.writeFile('dist/_headers', `# Default cache control
+/*
+  Cache-Control: public, max-age=2592000
+
+# Security headers
+/*.html
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+`);
+        }
+        
         // Copy profile photo if it exists
         await fs.copyFile('static/profile.jpg', 'dist/profile.jpg').catch(() => {
             console.warn('No profile.jpg found in static directory');
