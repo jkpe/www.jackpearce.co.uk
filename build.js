@@ -451,11 +451,7 @@ async function build() {
             await fs.access('dist/_headers');
         } catch {
             console.log('Creating default _headers file for Cloudflare Workers');
-            await fs.writeFile('dist/_headers', `# Default cache control
-/*
-  Cache-Control: public, max-age=2592000
-
-# Security headers
+            await fs.writeFile('dist/_headers', `# Default cache control    
 /*.html
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
