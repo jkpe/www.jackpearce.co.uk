@@ -3,7 +3,7 @@
     "express": "^4.21.2",
     "gray-matter": "^4.0.3",
     "prismjs": "^1.29.0",
-    "marked": "^15.0.0"
+    "marked": "^16.0.0"
   },
   "scripts": {
     "build": "node build.js",
