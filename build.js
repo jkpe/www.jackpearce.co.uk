@@ -462,6 +462,22 @@ async function build() {
 `);
         }
         
+        // Create _redirects file from redirects.json
+        console.log('Creating _redirects file for Cloudflare Workers');
+        try {
+            const redirectsData = await fs.readFile('redirects.json', 'utf-8');
+            const redirects = JSON.parse(redirectsData);
+            
+            const redirectsContent = redirects
+                .map(redirect => `${redirect.from} ${redirect.to} ${redirect.status}`)
+                .join('\n');
+            
+            await fs.writeFile('dist/_redirects', redirectsContent);
+            console.log(`Created _redirects file with ${redirects.length} redirects`);
+        } catch (error) {
+            console.warn('No redirects.json found, skipping _redirects file creation');
+        }
+        
         // Copy profile photo if it exists
         await fs.copyFile('static/profile.jpg', 'dist/profile.jpg').catch(() => {
             console.warn('No profile.jpg found in static directory');
