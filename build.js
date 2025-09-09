@@ -479,6 +479,15 @@ async function build() {
             console.warn('No profile.jpg found in static directory');
         });
 
+        // Copy favicon files if they exist
+        await fs.copyFile('static/favicon.ico', 'dist/favicon.ico').catch(() => {
+            console.warn('No favicon.ico found in static directory');
+        });
+        
+        await fs.copyFile('static/favicon.png', 'dist/favicon.png').catch(() => {
+            console.warn('No favicon.png found in static directory');
+        });
+
         // Copy talk thumbnails if they exist
         try {
             const talksImagesDir = path.join(__dirname, 'static', 'images', 'talks');

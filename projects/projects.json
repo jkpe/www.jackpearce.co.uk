@@ -1,5 +1,40 @@
 [
   {
+    "title": "DigitalOcean: DOKS LB Scale",
+    "description": "A tool to help you scale your DigitalOcean Kubernetes (DOKS) Load Balancers. A lightweight Kubernetes (DOKS) controller that automatically scales a DigitalOcean Load Balancer based on metrics from either the DigitalOcean API or Prometheus.",
+    "url": "https://github.com/jkpe/doks-lb-scale"
+  },
+  {
+    "title": "DigitalOcean Cost Explorer",
+    "description": "A tool to help you explore your DigitalOcean costs and usage. This project serves as both a practical cost analysis tool and a demo for building OAuth applications on top of DigitalOcean's API.",
+    "url": "https://costexplorer.digitalocean.solutions/"
+  },
+  {
+    "title": "DigitalOcean: Capacity UI",
+    "description": "A real-time dashboard for monitoring DigitalOcean droplet capacity across all regions and instance sizes.",
+    "url": "https://github.com/DO-Solutions/capacity-ui"
+  },
+  {
+    "title": "DigitalOcean: GPU Notifier",
+    "description": "Real-time GPU availability monitoring for DigitalOcean with push notifications. React frontend + Node.js backend.",
+    "url": "https://github.com/DO-Solutions/do-gpu-notifier"
+  },
+  {
+    "title": "GitHub App Actions Trigger",
+    "description": "A Cloudflare Worker that listens for /preview comments on pull requests and triggers GitHub Actions workflows for preview deployments.",
+    "url": "https://github.com/jkpe/github-app-actions-trigger"
+  },
+  {
+    "title": "DigitalOcean: Slug Grabber",
+    "description": "A tool to help you grab slugs from DigitalOcean. Automatically provisions DigitalOcean Droplets when they become available. This application periodically checks for available resources and creates Droplets up to your specified count.",
+    "url": "https://github.com/DO-Solutions/slug-grabber"
+  },
+  {
+    "title": "HomeLab Template",
+    "description": "This repository contains the infrastructure configuration for a cloud-based edge proxy that securely connects to an internal homelab environment.",
+    "url": "https://github.com/jkpe/homelab-template"
+  },
+  {
     "title": "DigitalOcean: Spaces Presigned URL Helper",
     "description": "Generates pre-signed URLs for secure, temporary access to objects in your DigitalOcean Spaces Bucket.",
     "url": "https://do-spaces-presigned-helper-lfzz7.ondigitalocean.app/"
@@ -25,5 +60,23 @@
     "description": "Use the ATOMS3 Dev Kit to create a small, dedicated button for temperature control. This tiny ESP32 device features an integrated display and button, making it perfect for the task.",
     "url": "https://www.jackpearce.co.uk/posts/eight-sleep-atoms3-control/",
     "github": "https://github.com/jkpe/eight-sleep-m5stack-atoms3"
+  },
+  {
+    "title": "DigitalOcean: DOKS Rook Ceph",
+    "description": "A guide for deploying Rook/Ceph storage on DigitalOcean Kubernetes (DOKS). Provides examples of consuming RWO Block and RWX Filesystem storage with performance benchmarks.",
+    "url": "https://github.com/DO-Solutions/doks-rook-ceph",
+    "github": "https://github.com/DO-Solutions/doks-rook-ceph"
+  },
+  {
+    "title": "DigitalOcean: Kubernetes Netmaker",
+    "description": "Integration guide for deploying Netmaker VPN solution on DigitalOcean Kubernetes (DOKS) clusters for secure networking and VPN management.",
+    "url": "https://github.com/DO-Solutions/DigitalOcean-Kubernetes-Netmaker",
+    "github": "https://github.com/DO-Solutions/DigitalOcean-Kubernetes-Netmaker"
+  },
+  {
+    "title": "DigitalOcean: DOKS S3",
+    "description": "A solution for integrating S3-compatible storage with DigitalOcean Kubernetes (DOKS) clusters, providing object storage capabilities for containerized applications.",
+    "url": "https://github.com/DO-Solutions/doks-s3",
+    "github": "https://github.com/DO-Solutions/doks-s3"
   }
 ]
