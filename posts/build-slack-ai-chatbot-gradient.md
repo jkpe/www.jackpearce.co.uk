@@ -6,6 +6,8 @@ excerpt: Create a chatbot that summarizes Slack conversations and answers questi
 category: "Language Models"
 ---
 
+> **Originally published as a DigitalOcean community article:** [Building a Slack AI Chatbot with DigitalOcean Gradient Platform](https://www.digitalocean.com/community/tutorials/build-slack-ai-chatbot-gradient)
+
 In today's collaborative workplace, messaging platforms like [Slack](https://slack.com/intl/en-in/blog/news/slack-ai-has-arrived) have become central hubs for team communication. By integrating [AI capabilities](https://www.digitalocean.com/products/ai-ml) into these platforms, organizations can enhance productivity, streamline workflows, and create more engaging user experiences. This is where AI-powered chatbots come into play, offering intelligent assistance directly within the communication channels teams already use.
 
 Whether you're a developer looking to enhance your team's Slack workspace or a product manager seeking to streamline communication processes, DigitalOcean's [Gradient Platform](https://www.digitalocean.com/products/gradientai/platform) provides an elegant solution for building sophisticated AI chatbots without complex infrastructure. By leveraging Gradient Platform, you can focus on creating meaningful interactions rather than managing the underlying AI infrastructure.

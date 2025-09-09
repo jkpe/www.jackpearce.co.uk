@@ -2,9 +2,11 @@
 title: "Build Real-Time AI Agents with Gradient and Serverless Functions"
 slug: ai-agents-gradient-platform-functions
 date: 2025-04-02T19:00:00.000Z
-excerpt: Easily create valuable AI-powered agents that can retrieve and process real-time information using DigitalOcean’s Gradient Platform.
+excerpt: Easily create valuable AI-powered agents that can retrieve and process real-time information using DigitalOcean's Gradient Platform.
 category: "Language Models"
 ---
+
+> **Originally published as a DigitalOcean community article:** [Build Real-Time AI Agents with Gradient and Serverless Functions](https://www.digitalocean.com/community/tutorials/ai-agents-gradient-platform-functions)
 
 In today's data-driven world, the ability to create [AI-powered agents](https://www.digitalocean.com/community/tutorials/build-ai-agent-chatbot-with-genai-platform) that can retrieve and process real-time information has become increasingly valuable. This is particularly evident in industries such as finance, healthcare, and e-commerce, where timely insights can significantly impact decision-making and customer experiences.
 

@@ -6,6 +6,8 @@ excerpt: Effortlessly collect and forward DigitalOcean Kubernetes (DOKS) logs to
 category: "DigitalOcean"
 ---
 
+> **Originally published as a DigitalOcean community article:** [Collect and Forward DigitalOcean Kubernetes (DOKS) Logs to DigitalOcean Managed OpenSearch](https://www.digitalocean.com/community/tutorials/collect-and-forward-kubernetes-logs-to-opensearch)
+
 This tutorial demonstrates how to collect and forward logs from a [DigitalOcean Kubernetes (DOKS)](https://docs.digitalocean.com/products/kubernetes/) cluster to a [DigitalOcean Managed OpenSearch](https://www.digitalocean.com/products/managed-databases-opensearch) instance using [AxoSyslog](https://axoflow.com/docs/axosyslog-core/), a scalable security data processor. By following this guide, you'll learn how to set up a robust logging system that captures and analyzes logs from your Kubernetes applications, making it easier to monitor, troubleshoot, and secure your infrastructure.
 
 In this tutorial, you will use [AxoSyslog](https://axoflow.com/docs/axosyslog-core/) to forward logs from a Kubernetes cluster to OpenSearch.
