@@ -1,9 +1,18 @@
 [
   {
+    "title": "Lessons from Scaling llm-d on DigitalOcean",
+    "description": "Want to scale beyond a single-GPU demo—without getting buried in infrastructure? Join DigitalOcean Solution Architects for a live walkthrough of how they deployed llm-d with vLLM on DigitalOcean Kubernetes (DOKS).",
+    "date": "2025-07-30",
+    "event": "Webinar",
+    "topic": "Kubernetes",
+    "thumbnail": "https://static.jackpearce.co.uk/images/talks/llm-d.jpg",
+    "videoUrl": "https://x.com/i/broadcasts/1dRJZYdQgRVGB"
+  },
+  {
     "title": "Building AI Agents That Retrieve Live Data",
     "description": "One of the biggest challenges with AI models is their inability to access real-time data from external sources. But what if you could build an AI-powered agent that connects to APIs and provides up-to-date answers on demand?",
     "date": "2025-02-22",
-    "event": "Linkedin",
+    "event": "YouTube",
     "topic": "Generative AI Agents",
     "thumbnail": "https://static.jackpearce.co.uk/images/talks/media_stream-0255b731096c4f36b8353b7d32507752.jpeg",
     "videoUrl": "https://youtu.be/CzebFVv0ltc?si=DlKXcAsA9muoNaUF",
