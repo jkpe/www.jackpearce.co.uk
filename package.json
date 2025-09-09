@@ -1,12 +1,18 @@
 {
   "dependencies": {
-    "express": "^4.21.2",
+    "express": "^5.1.0",
     "gray-matter": "^4.0.3",
-    "prismjs": "^1.29.0",
-    "marked": "^15.0.0"
+    "marked": "^16.1.2",
+    "prismjs": "^1.30.0"
   },
   "scripts": {
     "build": "node build.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "wrangler dev",
+    "preview": "wrangler dev --local"
+  },
+  "devDependencies": {
+    "wrangler": "^4.27.0"
   }
 }

@@ -1,0 +1,172 @@
+[
+  {
+    "from": "/eight-sleep-atoms3-control",
+    "to": "/posts/eight-sleep-atoms3-control/",
+    "status": 301
+  },
+  {
+    "from": "/trooli-fttp-ubiquiti-dream-machine-pppoe",
+    "to": "/posts/trooli-fttp-ubiquiti-dream-machine-pppoe/",
+    "status": 301
+  },
+  {
+    "from": "/home-assistant-automation-rewrite-llm-gpt4o",
+    "to": "/posts/home-assistant-automation-rewrite-llm-gpt4o/",
+    "status": 301
+  },
+  {
+    "from": "/ai-powered-github-actions-automating-home-assistant-history",
+    "to": "/posts/ai-powered-github-actions-automating-home-assistant-history/",
+    "status": 301
+  },
+  {
+    "from": "/automating-home-assistant-updates-with-github-actions",
+    "to": "/posts/automating-home-assistant-updates-with-github-actions/",
+    "status": 301
+  },
+  {
+    "from": "/eight-sleep-pod-3-my-thoughts",
+    "to": "/posts/eight-sleep-pod-3-my-thoughts/",
+    "status": 301
+  },
+  {
+    "from": "/home-assistant-yellow-review",
+    "to": "/posts/home-assistant-yellow-review/",
+    "status": 301
+  },
+  {
+    "from": "/building-helpful-chat-bots-is-easy-using-openai-assistants",
+    "to": "/posts/building-helpful-chat-bots-is-easy-using-openai-assistants/",
+    "status": 301
+  },
+  {
+    "from": "/automating-docker-in-a-homelab",
+    "to": "/posts/automating-docker-in-a-homelab/",
+    "status": 301
+  },
+  {
+    "from": "/running-rook-ceph-on-digitalocean-doks-managed-kubernetes",
+    "to": "/posts/running-rook-ceph-on-digitalocean-doks-managed-kubernetes/",
+    "status": 301
+  },
+  {
+    "from": "/dell-wyse-3040-as-a-wireguard-router",
+    "to": "/posts/dell-wyse-3040-as-a-wireguard-router/",
+    "status": 301
+  },
+  {
+    "from": "/digitalocean-kubernetes-doks-and-netmaker",
+    "to": "/posts/digitalocean-kubernetes-doks-and-netmaker/",
+    "status": 301
+  },
+  {
+    "from": "/1gb-internet",
+    "to": "/posts/1gb-internet/",
+    "status": 301
+  },
+  {
+    "from": "/deploy-ghost-on-digitalocean-app-platform",
+    "to": "/posts/deploy-ghost-on-digitalocean-app-platform/",
+    "status": 301
+  },
+  {
+    "from": "/home-assistant-google-assistant-local-connectivity",
+    "to": "/posts/home-assistant-google-assistant-local-connectivity/",
+    "status": 301
+  },
+  {
+    "from": "/cloudflared-opnsense",
+    "to": "/posts/cloudflared-opnsense/",
+    "status": 301
+  },
+  {
+    "from": "/icloud-custom-email-domains-is-slightly-better-now",
+    "to": "/posts/icloud-custom-email-domains-is-slightly-better-now/",
+    "status": 301
+  },
+  {
+    "from": "/automatically-decrypting-mounting-unraid-array-at-boot",
+    "to": "/posts/automatically-decrypting-mounting-unraid-array-at-boot/",
+    "status": 301
+  },
+  {
+    "from": "/adding-lsi9211-hp-microserver-gen8",
+    "to": "/posts/adding-lsi9211-hp-microserver-gen8/",
+    "status": 301
+  },
+  {
+    "from": "/have-a-lightning-fast-blog-and-host-it-for-free-github-actions-cloudflare-workers",
+    "to": "/posts/have-a-lightning-fast-blog-and-host-it-for-free-github-actions-cloudflare-workers/",
+    "status": 301
+  },
+  {
+    "from": "/replacing-ring-ring-jurassic-park-theme-song-using-pbx",
+    "to": "/posts/replacing-ring-ring-jurassic-park-theme-song-using-pbx/",
+    "status": 301
+  },
+  {
+    "from": "/making-wireguard-vpn-work-with-ee-4g-in-the-uk",
+    "to": "/posts/making-wireguard-vpn-work-with-ee-4g-in-the-uk/",
+    "status": 301
+  },
+  {
+    "from": "/home-assistant-nest-thermostat",
+    "to": "/posts/home-assistant-nest-thermostat/",
+    "status": 301
+  },
+  {
+    "from": "/automating-alexa-guard",
+    "to": "/posts/automating-alexa-guard/",
+    "status": 301
+  },
+  {
+    "from": "/sky-broadband-transparent-dns-proxy",
+    "to": "/posts/sky-broadband-transparent-dns-proxy/",
+    "status": 301
+  },
+  {
+    "from": "/social-attack-against-sim-cards",
+    "to": "/posts/social-attack-against-sim-cards/",
+    "status": 301
+  },
+  {
+    "from": "/investigating-the-dirty-world-of-phishing-emails",
+    "to": "/posts/investigating-the-dirty-world-of-phishing-emails/",
+    "status": 301
+  },
+  {
+    "from": "/have-a-lightning-fast-blog-and-host-it-for-free",
+    "to": "/posts/have-a-lightning-fast-blog-and-host-it-for-free/",
+    "status": 301
+  },
+  {
+    "from": "/organising-a-massive-photo-collection",
+    "to": "/posts/organising-a-massive-photo-collection/",
+    "status": 301
+  },
+  {
+    "from": "/virgin-media-why-are-you-manipulating-my-traffic",
+    "to": "/posts/virgin-media-why-are-you-manipulating-my-traffic/",
+    "status": 301
+  },
+  {
+    "from": "/everpix-is-awesome",
+    "to": "/posts/everpix-is-awesome/",
+    "status": 301
+  },
+  {
+    "from": "/securing-your-digital-world",
+    "to": "/posts/securing-your-digital-world/",
+    "status": 301
+  },
+  {
+    "from": "/yubikey-mac-os-x-filevault",
+    "to": "/posts/yubikey-mac-os-x-filevault/",
+    "status": 301
+  },
+  {
+    "from": "/ipv6-over-ipv4-at-home",
+    "to": "/posts/ipv6-over-ipv4-at-home/",
+    "status": 301
+  }
+] 

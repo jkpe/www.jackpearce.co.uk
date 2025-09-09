@@ -62,32 +62,32 @@ jobs:
 
           echo "✅ Build verification completed successfully"
 
-      - name: Start server for basic testing
+      - name: Test wrangler dev
         run: |
-          # Start the server in the background
-          node server.js &
-          SERVER_PID=$!
+          # Start wrangler dev in the background
+          npx wrangler dev --port 8787 &
+          WRANGLER_PID=$!
           
-          # Give the server a moment to start
-          sleep 2
+          # Give wrangler dev a moment to start
+          sleep 5
           
-          # Test if the server is responding
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+          # Test if wrangler dev is responding
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8787)
           if [ "$HTTP_STATUS" != "200" ]; then
-            echo "Error: Server is not responding with status 200"
-            kill $SERVER_PID
+            echo "Error: Wrangler dev is not responding with status 200"
+            kill $WRANGLER_PID
             exit 1
           fi
           
-          # Check if the server correctly handles .html redirection
-          REDIRECT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -L http://localhost:3000/index.html)
+          # Check if wrangler dev correctly handles .html redirection
+          REDIRECT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -L http://localhost:8787/index.html)
           if [ "$REDIRECT_STATUS" != "200" ]; then
             echo "Error: HTML redirection not working properly"
-            kill $SERVER_PID
+            kill $WRANGLER_PID
             exit 1
           fi
           
-          # Clean up: stop the server
-          kill $SERVER_PID
+          # Clean up: stop wrangler dev
+          kill $WRANGLER_PID
           
-          echo "✅ Server tests completed successfully"
+          echo "✅ Wrangler dev tests completed successfully"

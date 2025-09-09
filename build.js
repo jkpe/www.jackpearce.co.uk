@@ -446,6 +446,34 @@ async function build() {
             console.warn('No styles.css found in static directory');
         });
         
+        // Ensure _headers and _redirects files exist in dist for Cloudflare Workers
+        try {
+            await fs.access('dist/_headers');
+        } catch {
+            console.log('Creating default _headers file for Cloudflare Workers');
+            await fs.writeFile('dist/_headers', `# Default cache control    
+/*.html
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+`);
+        }
+        
+        // Create _redirects file from redirects.json
+        console.log('Creating _redirects file for Cloudflare Workers');
+        try {
+            const redirectsData = await fs.readFile('redirects.json', 'utf-8');
+            const redirects = JSON.parse(redirectsData);
+            
+            const redirectsContent = redirects
+                .map(redirect => `${redirect.from} ${redirect.to} ${redirect.status}`)
+                .join('\n');
+            
+            await fs.writeFile('dist/_redirects', redirectsContent);
+            console.log(`Created _redirects file with ${redirects.length} redirects`);
+        } catch (error) {
+            console.warn('No redirects.json found, skipping _redirects file creation');
+        }
+        
         // Copy profile photo if it exists
         await fs.copyFile('static/profile.jpg', 'dist/profile.jpg').catch(() => {
             console.warn('No profile.jpg found in static directory');
