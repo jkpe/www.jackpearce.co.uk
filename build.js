@@ -165,6 +165,178 @@ async function processPost(filePath) {
     };
 }
 
+// Generate brain dump post
+async function generateBrainDumpPost(metadata, htmlContent) {
+    try {
+        const templatePath = path.join(__dirname, 'templates', 'braindump-post.html');
+        const template = await fs.readFile(templatePath, 'utf-8');
+        
+        // Format the date
+        const formattedDate = new Date(metadata.date).toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+        });
+
+        // Process categories
+        const categories = metadata.category.split(',').map(cat => cat.trim());
+        const primaryCategory = categories[0];
+        const secondaryCategories = categories.slice(1);
+        
+        // Generate categories HTML
+        const categoriesHtml = `
+            <div class="categories-container">
+                <span class="category-primary">${primaryCategory}</span>
+                ${secondaryCategories.length > 0 ? 
+                    `<span class="categories-secondary">${secondaryCategories.join(' · ')}</span>` 
+                    : ''}
+            </div>
+        `;
+
+        // Generate canonical URL - add trailing slash
+        const canonicalUrl = `${siteMetadata.siteUrl}/braindump/${metadata.slug}/`;
+
+        // Extract keywords for meta tags
+        const keywords = metadata.keywords || categories.join(', ');
+
+        // Replace template variables
+        const replacements = {
+            '{{title}}': metadata.title,
+            '{{slug}}': metadata.slug,
+            '{{date}}': formattedDate,
+            '{{category}}': categoriesHtml,
+            '{{readTime}}': metadata.readTime,
+            '{{content}}': htmlContent,
+            '{{keywords}}': keywords,
+            '<meta rel="canonical" href="https://www.jackpearce.co.uk">': 
+                `<meta rel="canonical" href="${canonicalUrl}">`
+        };
+
+        // Replace all occurrences of each template variable
+        let result = template;
+        for (const [placeholder, value] of Object.entries(replacements)) {
+            result = result.replaceAll(placeholder, value || '');
+        }
+
+        return result;
+    } catch (error) {
+        console.error('Error generating brain dump post HTML:', error);
+        throw error;
+    }
+}
+
+// Process brain dump post
+async function processBrainDumpPost(filePath) {
+    const content = await fs.readFile(filePath, 'utf-8');
+    const { data: metadata, content: markdown } = matter(content);
+    
+    // Ensure we have a slug
+    if (!metadata.slug) {
+        metadata.slug = generateSlug(metadata.title);
+        console.warn(`No slug provided for ${filePath}, generated: ${metadata.slug}`);
+    }
+
+    const htmlContent = marked(markdown);
+    const readTime = calculateReadTime(markdown);
+
+    // Generate an excerpt (first 150 characters of markdown without formatting)
+    const plainText = markdown.replace(/#+\s+/g, '').replace(/\*\*/g, '').replace(/`/g, '');
+    const excerpt = plainText.slice(0, 150) + (plainText.length > 150 ? '...' : '');
+
+    // Generate the complete HTML for the brain dump post
+    const postHtml = await generateBrainDumpPost({ ...metadata, readTime }, htmlContent);
+    
+    // Write the brain dump post file without minification
+    const outputDir = path.join(__dirname, 'dist', 'braindump');
+    await fs.mkdir(outputDir, { recursive: true });
+    
+    const outputPath = path.join(outputDir, `${metadata.slug}.html`);
+    await fs.writeFile(outputPath, postHtml);
+
+    return {
+        ...metadata,
+        content: htmlContent,
+        readTime,
+        slug: metadata.slug,
+        excerpt
+    };
+}
+
+// Generate brain dumps listing page
+async function generateBrainDumpsPage(brainDumps) {
+    try {
+        const templatePath = path.join(__dirname, 'templates', 'braindump.html');
+        const template = await fs.readFile(templatePath, 'utf-8');
+        
+        // Get unique categories for filters
+        const categories = [...new Set(brainDumps.flatMap(dump => 
+            (dump.category || '').split(',').map(cat => cat.trim())
+        ))].filter(Boolean);
+        
+        // Generate category filter buttons HTML
+        const categoriesHtml = categories
+            .map(category => `
+                <button class="category-tag" data-category="${category}">${category}</button>
+            `)
+            .join('\n');
+        
+        // Generate brain dumps HTML
+        const brainDumpsHtml = brainDumps
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map(dump => {
+                const dumpCategories = (dump.category || '').split(',').map(cat => cat.trim());
+                const primaryCategory = dumpCategories[0];
+                const secondaryCategories = dumpCategories.slice(1);
+                const allCategories = dumpCategories.join('|');
+                
+                return `
+                    <article class="braindump-card" data-categories="${allCategories}">
+                        <div class="braindump-header">
+                            <div class="braindump-header-main">
+                                <h2 class="braindump-title">
+                                    <a href="/braindump/${dump.slug}/">${dump.title}</a>
+                                </h2>
+                                <div class="categories-container">
+                                    <span class="category-primary">${primaryCategory}</span>
+                                    ${secondaryCategories.length > 0 ? 
+                                        `<span class="categories-secondary">· ${secondaryCategories.join(' · ')}</span>` 
+                                        : ''}
+                                </div>
+                            </div>
+                            <div class="braindump-meta">
+                                ${new Date(dump.date).toLocaleDateString('en-US', { 
+                                    year: 'numeric', 
+                                    month: 'short', 
+                                    day: 'numeric'
+                                })}
+                            </div>
+                        </div>
+                        <div class="braindump-card-body">
+                            <div class="braindump-excerpt">${dump.excerpt}</div>
+                            <a href="/braindump/${dump.slug}/" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                `;
+            })
+            .join('\n');
+        
+        // Replace template variables
+        let result = template;
+        result = result.replace('{{categories}}', categoriesHtml);
+        result = result.replace('{{braindumps}}', brainDumpsHtml);
+        
+        // Write the brain dumps listing page
+        const outputPath = path.join(__dirname, 'dist', 'braindump', 'index.html');
+        await fs.writeFile(outputPath, result);
+        
+        console.log('Brain dumps page generated successfully!');
+        
+    } catch (error) {
+        console.error('Error generating brain dumps page:', error);
+        throw error;
+    }
+}
+
 // Function to generate talks page
 async function generateTalksPage(talks) {
     try {
@@ -433,6 +605,7 @@ async function build() {
         // Create output directories
         await fs.mkdir('dist', { recursive: true });
         await fs.mkdir('dist/posts', { recursive: true });
+        await fs.mkdir('dist/braindump', { recursive: true });
         
         // Create images directory for talks thumbnails
         await fs.mkdir('dist/images', { recursive: true }).catch(() => {});
@@ -523,15 +696,35 @@ async function build() {
             console.warn('No about.html found in templates directory');
         });
         
-        // Process all markdown files
+        // Process all blog posts
         const postsDir = path.join(__dirname, 'posts');
-        const files = await fs.readdir(postsDir);
-        const markdownFiles = files.filter(file => path.extname(file) === '.md');
+        const postFiles = await fs.readdir(postsDir);
+        const markdownPostFiles = postFiles.filter(file => path.extname(file) === '.md');
         
         // Process all posts
         const posts = await Promise.all(
-            markdownFiles.map(file => processPost(path.join(postsDir, file)))
+            markdownPostFiles.map(file => processPost(path.join(postsDir, file)))
         );
+
+        // Process all brain dumps
+        const brainDumpsDir = path.join(__dirname, 'braindumps');
+        let brainDumps = [];
+        
+        try {
+            const brainDumpFiles = await fs.readdir(brainDumpsDir);
+            const markdownBrainDumpFiles = brainDumpFiles.filter(file => path.extname(file) === '.md');
+            
+            // Process all brain dumps
+            brainDumps = await Promise.all(
+                markdownBrainDumpFiles.map(file => processBrainDumpPost(path.join(brainDumpsDir, file)))
+            );
+            
+            // Generate brain dumps page
+            await generateBrainDumpsPage(brainDumps);
+            
+        } catch (error) {
+            console.warn('Error processing brain dumps:', error.message);
+        }
 
         // Generate index page without minification
         const indexHtml = await generateIndex(posts);
