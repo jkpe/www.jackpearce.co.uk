@@ -1,5 +1,5 @@
 ---
-title: "Building a Slack AI Chatbot with DigitalOcean Gradient Platform"
+title: "Building a Slack AI Chatbot"
 slug: build-slack-ai-chatbot-gradient
 date: 2025-04-10T19:00:00.000Z
 excerpt: Create a chatbot that summarizes Slack conversations and answers questions using DigitalOcean's Gradient Platform.

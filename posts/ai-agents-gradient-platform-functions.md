@@ -1,5 +1,5 @@
 ---
-title: "Build Real-Time AI Agents with Gradient and Serverless Functions"
+title: "Build Real-Time AI Agents with Serverless Functions"
 slug: ai-agents-gradient-platform-functions
 date: 2025-04-02T19:00:00.000Z
 excerpt: Easily create valuable AI-powered agents that can retrieve and process real-time information using DigitalOcean's Gradient Platform.

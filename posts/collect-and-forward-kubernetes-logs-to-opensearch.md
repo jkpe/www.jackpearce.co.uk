@@ -1,5 +1,5 @@
 ---
-title: "Collect and Forward DigitalOcean Kubernetes (DOKS) Logs to DigitalOcean Managed OpenSearch"
+title: "Collect and Forward Kubernetes Logs to Managed OpenSearch"
 slug: collect-and-forward-kubernetes-logs-to-opensearch
 date: 2024-10-29T19:00:00.000Z
 excerpt: Effortlessly collect and forward DigitalOcean Kubernetes (DOKS) logs to DigitalOcean Managed OpenSearch for enhanced data analysis and monitoring.
